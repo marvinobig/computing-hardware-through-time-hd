@@ -1,0 +1,17 @@
+{
+    "name": "marvinobig/sci-museum",
+    "description": "A historical database",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "SciMuseum\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "marvinobig",
+            "email": "88102362+marvinobig@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
