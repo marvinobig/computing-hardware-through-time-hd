@@ -18,6 +18,7 @@ switch ($request) {
         echo "<h1>Admin page</h1>";
         break;
     case "/user":
+        header('Content-Type: application/json');
         echo json_encode([
             'username' => 'johnlovescode',
             'password' => 'srebtb4343555tbth!',
