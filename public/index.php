@@ -17,6 +17,12 @@ switch ($request) {
     case "/admin":
         echo "<h1>Admin page</h1>";
         break;
+    case "/user":
+        echo json_encode([
+            'username' => 'johnlovescode',
+            'password' => 'srebtb4343555tbth!',
+        ]);
+        break;
     default:
         # code...
         break;
