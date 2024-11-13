@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/src/autoloader.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'autoloader.php';
 
 use classes\Database;
 
