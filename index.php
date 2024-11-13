@@ -1,3 +1,12 @@
+<?php
+require_once __DIR__ . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "autoloader.php";
+
+use CTT\Classes\Database;
+
+$database = new Database("local", "marvinobig", "12345")
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +18,7 @@
 
     <body>
         <h1>Hello world</h1>
+        <?= $database->connectionDetails() ?>
     </body>
 
 </html>
