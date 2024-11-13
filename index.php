@@ -1,7 +1,8 @@
 <?php
-require_once __DIR__ . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "autoloader.php";
 
-use CTT\Classes\Database;
+require_once __DIR__ . "/src/autoloader.php";
+
+use classes\Database;
 
 $database = new Database("local", "marvinobig", "12345")
 

@@ -1,8 +1,12 @@
-<?php 
+<?php
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . "Classes" . DIRECTORY_SEPARATOR . "ClassLoader.php" ;
+spl_autoload_register(function ($class) {
+    $baseDir = __DIR__ . "/";
+    $class = str_replace('\\', '/', $class);
+    $file = $baseDir . $class . '.php';
 
-use CTT\Classes\ClassLoader;
-
-$autoloader = new ClassLoader('src', '  Classes');
-$autoloader->register();
+    // Include the file if it exists
+    if (file_exists($file)) {
+        require_once $file;
+    }
+});

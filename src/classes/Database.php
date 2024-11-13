@@ -1,6 +1,6 @@
 <?php
 
-namespace CTT\Classes;
+namespace classes;
 class Database {
     protected $connection;
     public function __construct(string $host, string $username, string $password) 
