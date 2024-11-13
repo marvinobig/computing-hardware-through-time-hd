@@ -2,7 +2,7 @@
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'autoloader.php';
 
-use classes\Database;
+use Classes\Database;
 
 $database = new Database("local", "marvinobig", "12345")
 
