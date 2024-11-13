@@ -5,7 +5,6 @@ spl_autoload_register(function ($class) {
     $class = str_replace('\\', '/', $class);
     $file = $baseDir . $class . '.php';
 
-    // Include the file if it exists
     if (file_exists($file)) {
         require_once $file;
     }
