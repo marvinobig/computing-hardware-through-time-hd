@@ -2,12 +2,14 @@
 
 class Database {
     protected $connection;
-    public function __construct(string $host, string $username, string $password) 
+    public function __construct(PDO $pdo) 
     {
-        $this->connection = "$host:$username;$password;";
-    }
-
-    public function connectionDetails() :string {
-        return $this->connection;
+        try {
+            $this->connection = $pdo;
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo 'Connection Successful';
+        } catch (PDOException $err) {
+            echo "Connection Failed: {$err->getMessage()}";
+        }
     }
 }
