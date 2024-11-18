@@ -16,4 +16,20 @@ class Database
         }
 
     }
+
+    public function createTables(string $sqlFile): void {
+        try {
+            $sqlScriptFile = "./src/db/{$sqlFile}";
+
+            if (!file_exists($sqlScriptFile)) {
+                throw new Exception ("SQL file doesn't exist");
+            }
+
+            $query = file_get_contents($sqlScriptFile);
+
+            $this->connection->exec($query);
+        } catch (Exception $err) {
+            echo "Error: {$err->getMessage()}";
+        }
+    }
 }
