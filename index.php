@@ -1,10 +1,6 @@
 <?php
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'autoloader.php';
-
-use Database;
-
-$database = new Database("local", "marvinobig", "12345")
+require_once __DIR__ . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "bootstrap.php"
 
 ?>
 
@@ -19,7 +15,6 @@ $database = new Database("local", "marvinobig", "12345")
 
     <body>
         <h1>Hello world</h1>
-        <?= $database->connectionDetails() ?>
     </body>
 
 </html>
