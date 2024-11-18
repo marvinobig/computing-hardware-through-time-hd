@@ -1,0 +1,51 @@
+CREATE DATABASE IF NOT EXISTS `ctt_db`;
+
+CREATE TABLE IF NOT EXISTS `admin_users` (
+  `id` integer PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `username` varchar(255) UNIQUE NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `email` varchar(255) UNIQUE NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `hardware` (
+  `id` integer PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `main_image_url` blob NOT NULL,
+  `thumbnail_url` blob NOT NULL,
+  `name` varchar(255) UNIQUE NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `manufacturer` varchar(255) NOT NULL,
+  `historical_significance_summary` text NOT NULL,
+  `details` text NOT NULL,
+  `price_at_release` float NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `user_id` integer NOT NULL,
+  `release_date` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `hardware_images` (
+  `id` integer PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `hardware_id` integer NOT NULL,
+  `image_url` blob NOT NULL,
+  `caption` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `user_activity` (
+  `id` integer PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `admin_id` integer NOT NULL,
+  `action_type` varchar(255) COMMENT 'e.g. Create, Update, Delete' NOT NULL,
+  `hardware_id` integer NOT NULL,
+  `happened_at` timestamp NOT NULL
+);
+
+ALTER TABLE `hardware` ADD FOREIGN KEY (`user_id`) REFERENCES `admin_users` (`id`);
+
+ALTER TABLE `user_activity` ADD FOREIGN KEY (`admin_id`) REFERENCES `admin_users` (`id`);
+
+ALTER TABLE `user_activity` ADD FOREIGN KEY (`hardware_id`) REFERENCES `hardware` (`id`);
+
+ALTER TABLE `hardware_images` ADD FOREIGN KEY (`hardware_id`) REFERENCES `hardware` (`id`);
