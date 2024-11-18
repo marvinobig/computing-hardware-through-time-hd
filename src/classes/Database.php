@@ -32,4 +32,8 @@ class Database
             echo "Error: {$err->getMessage()}";
         }
     }
+
+    public function query(string $type, string $tableName, array $columns = null, array $values = null): void {
+
+    }
 }
