@@ -2,7 +2,6 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
   `id` integer PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `username` varchar(255) UNIQUE NOT NULL,
   `password_hash` varchar(255) NOT NULL,
-  `email` varchar(255) UNIQUE NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL
 );
