@@ -10,6 +10,7 @@ class Database
         try {
             $this->connection = new PDO("{$dbType}:host={$host};port={$port};dbname={$dbName}", $username, $password);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch (PDOException $err) {
             echo "Connection Failed: {$err->getMessage()}";
         }
@@ -32,7 +33,17 @@ class Database
         }
     }
 
-    public function query(string $type, string $tableName, array $columns = null, array $values = null): void {
+    public function query(string $type, string $tableName, array|null $columns = null, array|null $values = null): array|Exception {
+        switch (strtolower($type)) {
+            case 's':
+                $columns = $columns ? join(', ', $columns) : '*';
+                $sqlStatement = "SELECT {$columns} FROM {$tableName}";
+                $executedStatement = $this->connection->prepare($sqlStatement);
+                $executedStatement->execute();
 
+                return $executedStatement->fetchAll();
+        }
+
+        throw new Exception("Query Error: Unsupported query type");
     }
 }
