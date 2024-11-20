@@ -17,12 +17,13 @@ class Database
 
     }
 
-    public function createTables(string $sqlFile): void {
+    public function createTables(string $sqlFile): void
+    {
         try {
             $sqlScriptFile = "./src/db/{$sqlFile}";
 
             if (!file_exists($sqlScriptFile)) {
-                throw new Exception ("SQL file doesn't exist");
+                throw new Exception("SQL file doesn't exist");
             }
 
             $query = file_get_contents($sqlScriptFile);
@@ -33,7 +34,8 @@ class Database
         }
     }
 
-    public function query(string $sqlStatement, array|null $executeValues = null): array{
+    public function query(string $sqlStatement, array|null $executeValues = null): array|int
+    {
         try {
             $executedStatement = $this->connection->prepare($sqlStatement);
 
@@ -42,8 +44,12 @@ class Database
             } else {
                 $executedStatement->execute();
             }
-    
-            return $executedStatement->fetchAll();
+
+            if (stripos($sqlStatement, 'SELECT') === 0) {
+                return $executedStatement->fetchAll();
+            }
+
+            return $executedStatement->rowCount();
         } catch (Exception $err) {
             echo "Query Error: {$err->getMessage()}";
             return [];
