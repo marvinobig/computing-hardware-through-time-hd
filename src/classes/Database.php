@@ -33,17 +33,21 @@ class Database
         }
     }
 
-    public function query(string $type, string $tableName, array|null $columns = null, array|null $values = null): array|Exception {
-        switch (strtolower($type)) {
-            case 's':
-                $columns = $columns ? join(', ', $columns) : '*';
-                $sqlStatement = "SELECT {$columns} FROM {$tableName}";
-                $executedStatement = $this->connection->prepare($sqlStatement);
-                $executedStatement->execute();
+    public function query(string $sqlStatement, array|null $executeValues = null): array|Exception {
+        try {
+            $executedStatement = $this->connection->prepare($sqlStatement);
 
-                return $executedStatement->fetchAll();
+            if ($executeValues) {
+                $executedStatement->execute($executeValues);
+            } else {
+                $executedStatement->execute();
+            }
+    
+            return $executedStatement->fetchAll();
+        } catch (Exception $err) {
+            echo "Query Error: {$err->getMessage()}";
         }
 
-        throw new Exception("Query Error: Unsupported query type");
+        return [];
     }
 }
