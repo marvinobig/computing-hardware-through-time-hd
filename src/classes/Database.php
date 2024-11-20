@@ -33,7 +33,7 @@ class Database
         }
     }
 
-    public function query(string $sqlStatement, array|null $executeValues = null): array|Exception {
+    public function query(string $sqlStatement, array|null $executeValues = null): array{
         try {
             $executedStatement = $this->connection->prepare($sqlStatement);
 
@@ -46,8 +46,7 @@ class Database
             return $executedStatement->fetchAll();
         } catch (Exception $err) {
             echo "Query Error: {$err->getMessage()}";
+            return [];
         }
-
-        return [];
     }
 }
