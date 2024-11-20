@@ -1,5 +1,5 @@
 <nav>
-    <p>CHTT</p>
+    <a href="/">CHTT</a>
     <section>
         <a href="/contributions.php">Contributions</a>
         <div>
