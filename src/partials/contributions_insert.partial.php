@@ -33,8 +33,8 @@
         <input required type="text" name="manufacturer" id="manufacturer">
     </section>
     <section>
-        <label for="historical_significance">Historical Significance</label>
-        <textarea name="historical_significance" id="historical_significance" rows="4" cols="50"></textarea>
+        <label for="summary">Historical Significance Summary</label>
+        <textarea name="summary" id="summary" rows="4" cols="50"></textarea>
     </section>
     <section>
         <label for="details">Details</label>
