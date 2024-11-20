@@ -22,14 +22,6 @@ CREATE TABLE IF NOT EXISTS `hardware` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS `hardware_images` (
-  `id` integer PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `hardware_id` integer NOT NULL,
-  `image_url` text NOT NULL,
-  `caption` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
 CREATE TABLE IF NOT EXISTS `user_activity` (
   `id` integer PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `admin_id` integer NOT NULL,
