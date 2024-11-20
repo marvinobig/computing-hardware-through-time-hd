@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `hardware` (
   `price_at_release` float NOT NULL,
   `status` varchar(255) NOT NULL,
   `user_id` integer NOT NULL,
-  `release_date` timestamp NOT NULL,
+  `release_date` date NOT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL
 );
