@@ -14,9 +14,11 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
     <body>
         <?php require_once __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'partials' . DIRECTORY_SEPARATOR . 'nav.partial.php' ?>
 
-        <h1>Hello world</h1>
-
-        <?php var_dump($hardwareListings) ?>
+        <main>
+            <h1>Homepage</h1>
+    
+            <?php var_dump($hardwareListings) ?>
+        </main>
     </body>
 
 </html>
