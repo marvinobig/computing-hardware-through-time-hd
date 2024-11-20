@@ -1,11 +1,7 @@
 <form id="contributions_upload" method="post" enctype="multipart/form-data">
     <section>
-        <label for="main_image">Main Image</label>
-        <input required type="file" name="main_image" id="main_image" accept="image/*">
-    </section>
-    <section>
-        <label for="thumbnail">Thumbnail</label>
-        <input required type="file" name="thumbnail" id="thumbnail" accept="image/*">
+        <label for="image">Image</label>
+        <input required type="file" name="image" id="image" accept="image/*">
     </section>
     <section>
         <label for="hardware_name">Name</label>
