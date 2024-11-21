@@ -1,4 +1,6 @@
 <?php
+
+require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "bootstrap.php";
 $title = 'Dashboard';
 ?>
 <!DOCTYPE html>
@@ -10,6 +12,8 @@ $title = 'Dashboard';
 
         <main>
             <h1>Dashboard</h1>
+
+            <?php Utilities::loadPartial('contributions_insert') ?>
         </main>
     </body>
 
