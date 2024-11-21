@@ -35,5 +35,3 @@ ALTER TABLE `hardware` ADD FOREIGN KEY (`user_id`) REFERENCES `admin_users` (`id
 ALTER TABLE `user_activity` ADD FOREIGN KEY (`admin_id`) REFERENCES `admin_users` (`id`);
 
 ALTER TABLE `user_activity` ADD FOREIGN KEY (`hardware_id`) REFERENCES `hardware` (`id`);
-
-ALTER TABLE `hardware_images` ADD FOREIGN KEY (`hardware_id`) REFERENCES `hardware` (`id`);
