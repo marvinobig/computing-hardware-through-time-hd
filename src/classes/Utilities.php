@@ -2,22 +2,20 @@
 
 class Utilities
 {
-    public static function partial(string $file, string $searchFrom = 'root'): string|null
+    public static function loadPartial(string $file): void
     {
         try {
             $sep = DIRECTORY_SEPARATOR;
 
-            switch ($searchFrom) {
-                case "root":
-                    return require_once __DIR__ . $sep . '..' . $sep . 'partials' . $sep . "$file.partial.php";
+            $filePath = __DIR__ . $sep . '..' . $sep . 'partials' . $sep . "$file.partial.php";
 
-                case "admin":
-                    return require_once __DIR__ . $sep . '..' . $sep . '..' . $sep . 'partials' . $sep . 'nav.partial.php';
-                default:
-                    return "Directory to search from doesn't exist";
+            if (!file_exists($filePath)) {
+                throw new RuntimeException("Partial File Not Found: $filePath");
             }
+
+            require_once $filePath;
         } catch (Exception $err) {
-            return "File Error: {$err->getMessage()}";
+            echo "Partial File Error: {$err->getMessage()}";
         }
     }
 
