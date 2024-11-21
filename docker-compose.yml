@@ -1,27 +1,27 @@
 services:
-  ctt_db:
+  chtt_db:
     image: mysql:latest
-    container_name: ctt_db
+    container_name: chtt_db
     environment:
-      MYSQL_ROOT_PASSWORD: ctt_hd
-      MYSQL_DATABASE: ctt_db
-      MYSQL_USER: ctt_user
-      MYSQL_PASSWORD: ctt_user_pass
+      MYSQL_ROOT_PASSWORD: chtt_hd
+      MYSQL_DATABASE: chtt_db
+      MYSQL_USER: chtt_user
+      MYSQL_PASSWORD: chtt_user_pass
     ports:
       - "6033:3306"
     volumes:
-      - ctt_dbdata:/var/lib/mysql
-  ctt_phpmyadmin:
+      - chtt_dbdata:/var/lib/mysql
+  chtt_phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: ctt_pma
+    container_name: chtt_pma
     links:
-      - ctt_db
+      - chtt_db
     environment:
-      PMA_HOST: ctt_db
+      PMA_HOST: chtt_db
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
     restart: always
     ports:
       - 8081:80
 volumes:
-  ctt_dbdata:
+  chtt_dbdata:
