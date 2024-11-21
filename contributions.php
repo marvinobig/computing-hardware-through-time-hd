@@ -18,17 +18,19 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
             <h1>Contributions</h1>
 
             <?php foreach ($hardwareListings as $hardware): ?>
-                <article>
-                    <img src="<?= $hardware['image_url'] ?>" alt="<?= $hardware['name'] ?>">
-                    <div>
-                        <h3><?= $hardware['name'] ?></h3>
-                        <p><?= $hardware['summary'] ?></p>
+                <a href="/contribution.php?id=<?= $hardware['id'] ?>">
+                    <article>
+                        <img src="<?= $hardware['image_url'] ?>" alt="<?= $hardware['name'] ?>">
                         <div>
-                            <p><?= $hardware['status'] ?></p>
-                            <p>Release Date: <?= $hardware['release_date'] ?></p>
+                            <h3><?= $hardware['name'] ?></h3>
+                            <p><?= nl2br($hardware['summary'])  ?></p>
+                            <div>
+                                <p><?= $hardware['status'] ?></p>
+                                <p>Release Date: <?= nl2br($hardware['release_date']) ?></p>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                </a>
             <?php endforeach; ?>
         </main>
     </body>

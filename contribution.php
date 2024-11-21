@@ -36,11 +36,11 @@ if ($hardwareListing === []) {
                         <p><?= $hardwareListing['Manufacturer'] ?></p>
                         <p><?= $hardwareListing['status'] ?></p>
                         <p>Release Date: <?= $hardwareListing['release_date'] ?></p>
-                        <p><?= $hardwareListing['summary'] ?></p>
+                        <p><?= nl2br($hardwareListing['summary']) ?></p>
                     </div>
                 </section>
                 <section>
-                    <p><?= $hardwareListing['details'] ?></p>
+                    <p><?= nl2br($hardwareListing['details']) ?></p>
                 </section>
             <?php endif ?>
         </main>
