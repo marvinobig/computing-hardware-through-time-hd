@@ -12,15 +12,15 @@ class Utilities
         try {
             $sep = DIRECTORY_SEPARATOR;
 
-            $filePath = __DIR__ . $sep . '..' . $sep . 'partials' . $sep . "$file.partial.php";
+            $filePath = __DIR__ . $sep . '..' . $sep . '..' . $sep . 'partials' . $sep . "$file.partial.php";
 
             if (!file_exists($filePath)) {
-                throw new RuntimeException("Partial File Not Found: $filePath");
+                throw new RuntimeException("Partial File Not Found: $filePath" . '<br>');
             }
 
             require_once $filePath;
         } catch (Exception $err) {
-            echo "Partial File Error: {$err->getMessage()}";
+            echo $err->getMessage();
         }
     }
 
