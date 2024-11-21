@@ -1,5 +1,10 @@
 <?php
 
+namespace App;
+
+use RuntimeException;
+use Exception;
+
 class Utilities
 {
     public static function loadPartial(string $file): void

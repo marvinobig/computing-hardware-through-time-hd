@@ -1,5 +1,11 @@
 <?php
 
+namespace Data;
+
+use PDO;
+use PDOException;
+use Exception;
+
 class Database
 {
     private $connection;
