@@ -10,7 +10,7 @@ use App\Utilities;
     <?php Utilities::loadPartial('head') ?>
 
     <body>
-        <?php Utilities::loadPartial('head') ?>
+        <?php Utilities::loadPartial('nav') ?>
 
         <main>
             <h1>Dashboard</h1>
