@@ -50,7 +50,7 @@ class Database
             }
 
             return $executedStatement->rowCount();
-        } catch (Exception $err) {
+        } catch (PDOException $err) {
             echo "Query Error: {$err->getMessage()}";
             return [];
         }
