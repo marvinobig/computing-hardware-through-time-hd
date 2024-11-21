@@ -2,6 +2,8 @@
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "bootstrap.php";
 
+use App\Utilities;
+
 $title = 'Homepage';
 $database->createTables('chtt_db.sql');
 
@@ -9,10 +11,10 @@ $database->createTables('chtt_db.sql');
 
 <!DOCTYPE html>
 <html lang="en">
-    <?php require_once __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'partials' . DIRECTORY_SEPARATOR . 'head.partial.php' ?>
+    <?php Utilities::loadPartial('head', ['title' => $title]) ?>
 
     <body>
-        <?php require_once __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'partials' . DIRECTORY_SEPARATOR . 'nav.partial.php' ?>
+        <?php Utilities::loadPartial('nav') ?>
 
         <main>
             <h1>Homepage</h1>

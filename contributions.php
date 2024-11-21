@@ -11,7 +11,7 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
 
 <!DOCTYPE html>
 <html lang="en">
-    <?php Utilities::loadPartial('head') ?>
+    <?php Utilities::loadPartial('head', ['title' => $title]) ?>
 
     <body>
         <?php Utilities::loadPartial('nav') ?>

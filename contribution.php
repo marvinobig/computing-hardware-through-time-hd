@@ -13,15 +13,11 @@ if (!$id) {
 
 $hardwareListing = $database->query('SELECT * FROM hardware WHERE id = ?;', [$id])[0];
 
-if ($hardwareListing === []) {
-    $error_msg = "That listing doesn't exist";
-}
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <?php Utilities::loadPartial('head') ?>
+    <?php Utilities::loadPartial('head', ['title' => $title]) ?>
 
     <body>
         <?php Utilities::loadPartial('nav') ?>
@@ -29,7 +25,7 @@ if ($hardwareListing === []) {
         <main>
             <?php if ($error_msg): ?>
                 <h1><?= $error_msg ?></h1>
-            <?php else: ?>
+            <?php elseif ($hardwareListing): ?>
                 <h1>Contributions: <?= $hardwareListing['name'] ?></h1>
                 <section>
                     <img src="<?= $hardwareListing['image_url'] ?>" alt="<?= $hardwareListing['name'] ?>">
@@ -44,6 +40,8 @@ if ($hardwareListing === []) {
                 <section>
                     <p><?= nl2br($hardwareListing['details']) ?></p>
                 </section>
+            <?php else: ?>
+                <h1>That listing doesn't exist</h1>
             <?php endif ?>
         </main>
     </body>

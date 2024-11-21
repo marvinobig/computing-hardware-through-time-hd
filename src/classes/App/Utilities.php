@@ -7,7 +7,7 @@ use Exception;
 
 class Utilities
 {
-    public static function loadPartial(string $file): void
+    public static function loadPartial(string $file, array $variables = []): void
     {
         try {
             $sep = DIRECTORY_SEPARATOR;
@@ -17,6 +17,8 @@ class Utilities
             if (!file_exists($filePath)) {
                 throw new RuntimeException("Partial File Not Found: $filePath" . '<br>');
             }
+
+            extract($variables);
 
             require_once $filePath;
         } catch (Exception $err) {
