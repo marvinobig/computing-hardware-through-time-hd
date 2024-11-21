@@ -2,6 +2,8 @@
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "bootstrap.php";
 $title = 'Dashboard';
+
+use App\Utilities;
 ?>
 <!DOCTYPE html>
 <html lang="en">

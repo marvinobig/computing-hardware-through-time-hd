@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "bootstrap.php";
 
+use App\Utilities;
+
 $title = 'Contributions';
 $error_msg = '';
 $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
