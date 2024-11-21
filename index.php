@@ -4,6 +4,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "boot
 
 $title = 'Homepage';
 $database->createTables('chtt_db.sql');
+
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +16,6 @@ $database->createTables('chtt_db.sql');
 
         <main>
             <h1>Homepage</h1>
-
-            <?php var_dump($hardwareListings) ?>
         </main>
     </body>
 
