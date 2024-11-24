@@ -15,7 +15,7 @@ use App\Utilities;
         <main>
             <h1>Dashboard</h1>
 
-            <?php Utilities::loadPartial('contributions_insert') ?>
+            <?php Utilities::loadPartial('contributions-insert') ?>
         </main>
     </body>
 
