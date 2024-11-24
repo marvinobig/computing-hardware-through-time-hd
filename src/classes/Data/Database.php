@@ -5,6 +5,7 @@ namespace Data;
 use PDO;
 use PDOException;
 use Exception;
+use App\Utilities;
 
 class Database
 {
@@ -40,7 +41,7 @@ class Database
         }
     }
 
-    public function query(string $sqlStatement, array|null $executeValues = null): array|int
+    public function query(string $sqlStatement, array|null $executeValues = null, string $errFormat = 'echo'): array|int
     {
         try {
             $executedStatement = $this->connection->prepare($sqlStatement);
@@ -57,7 +58,12 @@ class Database
 
             return $executedStatement->rowCount();
         } catch (PDOException $err) {
-            echo "Query Error: {$err->getMessage()}";
+            if ($errFormat === 'json') {
+                Utilities::sendJson(400, ['msg' => "Query Error: {$err->getMessage()}"]);
+            } else {
+                echo "Query Error: {$err->getMessage()}";
+            }
+            
             return [];
         }
     }
