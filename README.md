@@ -15,4 +15,4 @@ This project will be a historical database hosting data on hardware contribution
 - Search for hardware by name 
 - Database input sanitization using prepared statements.
 - Asynchronous updates without a page reload.
-- Display admin user history (updates to listings)
+- Display change history (updates to listings)
