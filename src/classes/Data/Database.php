@@ -58,12 +58,16 @@ class Database
 
             return $executedStatement->rowCount();
         } catch (PDOException $err) {
-            if ($errFormat === 'json') {
-                Utilities::sendJson(400, ['msg' => "Query Error: {$err->getMessage()}"]);
-            } else {
-                echo "Query Error: {$err->getMessage()}";
+            switch ($errFormat) {
+                case 'json':
+                    Utilities::sendJson(400, ['msg' => "Query Error: {$err->getMessage()}"]);
+                    break;
+
+                default:
+                    echo "Query Error: {$err->getMessage()}";
+                    break;
             }
-            
+
             return [];
         }
     }
