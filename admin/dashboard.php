@@ -16,6 +16,7 @@ use App\Utilities;
             <h1>Dashboard</h1>
 
             <?php Utilities::loadPartial('contributions-insert') ?>
+            <?php Utilities::loadPartial('listings-table', ['database' => $database]) ?>
         </main>
     </body>
 
