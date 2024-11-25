@@ -26,7 +26,7 @@ class Utilities
         }
     }
 
-    public static function sendJson(int $responseCode, array $response): void
+    public static function sendJson(int $responseCode, array $response = []): void
     {
         try {
             $json = json_encode($response);
@@ -37,7 +37,10 @@ class Utilities
 
             header('Content-Type: application/json');
             http_response_code($responseCode);
-            echo $json;
+
+            if ($response) {
+                echo $json;
+            }
 
             exit;
         } catch (Exception $err) {
