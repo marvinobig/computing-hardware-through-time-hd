@@ -9,4 +9,6 @@ if (!$id) {
     Utilities::sendJson(400,['msg' => 'Listing could not be found']);
 }
 
-$database->query('DELETE FROM hardware WHERE id = ?', [$id]);
+$response = $database->query('DELETE FROM hardware WHERE id = ?', [$id]);
+
+Utilities::sendJson(204, ['msg' => 'Listing has been deleted']);
