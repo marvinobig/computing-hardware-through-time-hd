@@ -4,7 +4,7 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
 
 ?>
 
-<table id="listings_table">
+<table id="contributions_table">
     <tr>
         <th>Contribution Name</th>
         <th>Views</th>
