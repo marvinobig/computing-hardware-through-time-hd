@@ -37,7 +37,7 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
                         </a>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <h2>Nothing to Show</h2>
+                    <h2>Nothing to display</h2>
                 <?php endif ?>
             </section>
         </main>
