@@ -9,6 +9,8 @@ $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
 if (!$id) {
     $error_msg = "That listing doesn't exist";
+} else {
+    $database->query("UPDATE hardware SET views = views + 1 WHERE id = ?", [$id]);
 }
 
 $hardwareListing = $database->query('SELECT * FROM hardware WHERE id = ?;', [$id])[0];
@@ -26,7 +28,7 @@ $hardwareListing = $database->query('SELECT * FROM hardware WHERE id = ?;', [$id
             <?php if ($error_msg): ?>
                 <h1><?= $error_msg ?></h1>
             <?php elseif ($hardwareListing): ?>
-                <h1>Contributions: <?= $hardwareListing['name'] ?></h1>
+                <h1>Contribution: <?= $hardwareListing['name'] ?></h1>
                 <section>
                     <img src="<?= $hardwareListing['image_url'] ?>" alt="<?= $hardwareListing['name'] ?>">
                     <div>
