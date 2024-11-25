@@ -13,10 +13,11 @@ async function reloadContributionsTable(tableBody) {
 
     tableBody.innerHTML = "";
 
-    result.listings.forEach((listing) => {
-      const createdDate = new Date(listing.created_at);
+    if (result.listings.length > 0) {
+      result.listings.forEach((listing) => {
+        const createdDate = new Date(listing.created_at);
 
-      const row = `
+        const row = `
         <tr>
           <td>
             <a href="/contribution.php?id=${listing.id}">
@@ -32,8 +33,17 @@ async function reloadContributionsTable(tableBody) {
         </tr>
       `;
 
+        tableBody.insertAdjacentHTML("beforeend", row);
+      });
+    } else {
+      const row = `
+        <tr>
+          <td class="empty_table_msg" colspan="4">Nothing to display</td>
+        </tr>
+      `;
+
       tableBody.insertAdjacentHTML("beforeend", row);
-    });
+    }
   } catch (err) {
     console.error(`Error loading contributions: ${err}`);
   }
