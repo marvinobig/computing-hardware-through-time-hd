@@ -6,13 +6,13 @@ use App\Utilities;
 $id = filter_var($_GET["id"], FILTER_VALIDATE_INT);
 
 if (!$id) {
-    Utilities::sendJson(400,['msg' => 'Listing could not be found']);
+    Utilities::sendJson(400);
 }
 
 $response = $database->query('DELETE FROM hardware WHERE id = ?', [$id]);
 
 if ($response < 1) {
-    Utilities::sendJson(400,['msg'=> 'Listing has not been deleted']);
+    Utilities::sendJson(400);
 } else {
-    Utilities::sendJson(204, ['msg' => 'Listing has been deleted']);
+    Utilities::sendJson(204);
 }
