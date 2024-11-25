@@ -11,4 +11,8 @@ if (!$id) {
 
 $response = $database->query('DELETE FROM hardware WHERE id = ?', [$id]);
 
-Utilities::sendJson(204, ['msg' => 'Listing has been deleted']);
+if ($response < 1) {
+    Utilities::sendJson(400,['msg'=> 'Listing has not been deleted']);
+} else {
+    Utilities::sendJson(204, ['msg' => 'Listing has been deleted']);
+}
