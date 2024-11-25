@@ -25,7 +25,7 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
                 </td>
                 <td><?= $listing['views'] ?></td>
                 <td>
-                    <?= (new DateTime($listing['created_at']))->format('d/m/Y \a\t\ h:i:s a') ?>
+                    <?= (new DateTime($listing['created_at']))->format('d/m/Y \a\t\ H:i:s') ?>
                 </td>
                 <td>
                     <button id="<?= $listing['id'] ?>" type="button">Edit</button>
