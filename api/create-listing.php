@@ -43,7 +43,7 @@ if (isset($_FILES['image']) && isset($_POST)) {
 
             if ($dbResponse) {
                 if (move_uploaded_file($imageFileTmpName, $imageTargetDir . basename($imageFileName))) {
-                    Utilities::sendJson(200, [
+                    Utilities::sendJson(201, [
                         'msg' => 'The hardware and its image has successfully been listed'
                     ]);
                 }
