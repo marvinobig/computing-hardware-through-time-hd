@@ -50,10 +50,6 @@ if (isset($_FILES['image']) && isset($_POST)) {
             } else {
                 Utilities::sendJson(400, [
                     'msg' => 'The hardware and its image has failed to be listed',
-                    'data' => [
-                        $_FILES['image'],
-                        $_POST,
-                    ]
                 ]);
             }
         }
