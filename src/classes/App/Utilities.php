@@ -53,4 +53,9 @@ class Utilities
             exit;
         }
     }
+
+    public static function redirect(string $path, int $statusCode = 400): void {
+        header('Location: /' . $path, true, $statusCode);
+        exit;
+    }
 }
