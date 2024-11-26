@@ -29,7 +29,9 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
                         <?= (new DateTime($listing['created_at']))->format('d/m/Y \a\t\ H:i:s') ?>
                     </td>
                     <td>
-                        <button id="<?= $listing['id'] ?>" type="button">Edit</button>
+                        <a href="/admin/update-listing.php?id=<?= $listing['id'] ?>">
+                            Edit
+                        </a>
                         <button id="<?= $listing['id'] ?>" type="button">Delete</button>
                     </td>
                 </tr>

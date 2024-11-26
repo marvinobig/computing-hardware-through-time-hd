@@ -34,7 +34,9 @@ async function reloadContributionsTable(tableBody) {
           <td>${listing.views}</td>
           <td>${createdDate.toLocaleDateString()} at ${createdDate.toLocaleTimeString()}</td>
           <td>
-            <button id="${listing.id}" type="button">Edit</button>
+            <a href="/admin/update-listing.php?id=${listing.id}">
+              Edit
+            </a>
             <button id="${listing.id}" type="button">Delete</button>
           </td>
         </tr>
@@ -114,10 +116,12 @@ if (contributionsTable) {
   });
 }
 
-contributionsModalOpenBtn.addEventListener("click", () => {
-  contributionsModal.showModal();
-});
+if (contributionsModal) {
+  contributionsModalOpenBtn.addEventListener("click", () => {
+    contributionsModal.showModal();
+  });
 
-contributionsModalCloseBtn.addEventListener("click", () => {
-  contributionsModal.close();
-});
+  contributionsModalCloseBtn.addEventListener("click", () => {
+    contributionsModal.close();
+  });
+}
