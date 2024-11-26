@@ -5,6 +5,13 @@ const contributionsTable = document.querySelector("#contributions_table");
 const contributionsTableBody = document.querySelector(
   "#contributions_table tbody"
 );
+const contributionsModal = document.querySelector("#create_modal");
+const contributionsModalOpenBtn = document.querySelector(
+  "#create_modal_open_btn"
+);
+const contributionsModalCloseBtn = document.querySelector(
+  "#create_modal_close_btn"
+);
 
 async function reloadContributionsTable(tableBody) {
   try {
@@ -69,6 +76,7 @@ if (contributionsInsertForm) {
         alert(result.msg);
         form.reset();
         reloadContributionsTable(contributionsTableBody);
+        contributionsModal.close();
       }
     } catch (err) {
       alert(err.message);
@@ -105,3 +113,11 @@ if (contributionsTable) {
     }
   });
 }
+
+contributionsModalOpenBtn.addEventListener("click", () => {
+  contributionsModal.showModal();
+});
+
+contributionsModalCloseBtn.addEventListener("click", () => {
+  contributionsModal.close();
+});
