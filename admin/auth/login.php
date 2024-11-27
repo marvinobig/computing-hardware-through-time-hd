@@ -7,7 +7,7 @@ $title = 'Admin Login';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <?php Utilities::loadPartial('header') ?>
+    <?php Utilities::loadPartial('head') ?>
 
     <body>
         <?php Utilities::loadPartial('nav') ?>
