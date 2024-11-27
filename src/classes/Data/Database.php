@@ -69,6 +69,29 @@ class Database
             }
 
             return [];
+        } catch (Exception $err) {
+            echo "Error: {$err->getMessage()}";
+            return [];
+        }
+    }
+
+    public function createAdmin(string $username, string $password): void
+    {
+        try {
+            $userExists = $this->connection->prepare('SELECT * FROM admin_users WHERE username = ?');
+            $userExists->execute([$username]);
+
+            if ($userExists->rowCount() < 1) {
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+                $executedStatement = $this->connection->prepare('INSERT INTO admin_users (username, password_hash) VALUES (?, ?)');
+
+                $executedStatement->execute([$username, $hashedPassword]);
+            } 
+        } catch (PDOException $err) {
+            echo "Query Error: {$err->getMessage()}";
+        } catch (Exception $err) {
+            echo "Error: {$err->getMessage()}";
         }
     }
 }
