@@ -41,6 +41,7 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
                 <?php endif ?>
             </section>
         </main>
-    </body>
 
+        <?php Utilities::loadPartial('footer') ?>
+    </body>
 </html>

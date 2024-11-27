@@ -16,12 +16,12 @@ $database->createAdmin('admin', 'admin');
     <body>
         <?php Utilities::loadPartial('nav') ?>
 
+        <header>
+            <h1>Welcome to the Computing Hardware Through Time Database</h1>
+            <p>Discover key milestones and contributions to the computing industry over time.</p>
+        </header>
+        
         <main>
-            <header>
-                <h1>Welcome to the Computing Hardware Through Time Database</h1>
-                <p>Discover key milestones and contributions to the computing industry over time.</p>
-            </header>
-
             <section>
                 <h2>About the Database</h2>
                 <p>Our platform hosts a comprehensive database of hardware contributions to the computing industry. The
@@ -68,9 +68,9 @@ $database->createAdmin('admin', 'admin');
                         experience.</p>
                 </div>
             </section>
-
-            <?php Utilities::loadPartial('footer') ?>
         </main>
+
+        <?php Utilities::loadPartial('footer') ?>
     </body>
 
 </html>

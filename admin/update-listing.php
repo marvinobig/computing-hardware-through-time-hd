@@ -28,6 +28,7 @@ $title = 'Update ' . $listing['name'] . ' listing';
         <main>
             <h1>Update <?= $listing['name'] ?> listing</h1>            
         </main>
-    </body>
 
+        <?php Utilities::loadPartial('footer') ?>
+    </body>
 </html>

@@ -46,6 +46,7 @@ $hardwareListing = $database->query('SELECT * FROM hardware WHERE id = ?;', [$id
                 <h1>That listing doesn't exist</h1>
             <?php endif ?>
         </main>
-    </body>
 
+        <?php Utilities::loadPartial('footer') ?>
+    </body>
 </html>

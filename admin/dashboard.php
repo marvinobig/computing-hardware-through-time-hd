@@ -18,6 +18,7 @@ use App\Utilities;
             <?php Utilities::loadPartial('contributions-insert') ?>
             <?php Utilities::loadPartial('listings-table', ['database' => $database]) ?>
         </main>
-    </body>
 
+        <?php Utilities::loadPartial('footer') ?>
+    </body>
 </html>
