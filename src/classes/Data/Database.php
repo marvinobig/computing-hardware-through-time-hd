@@ -27,15 +27,20 @@ class Database
     public function createTables(string $sqlFile): void
     {
         try {
-            $sqlScriptFile = "./src/db/{$sqlFile}";
+            $tablesExist = $this->connection->query('SHOW TABLES LIKE "admin_users"');
+            $tablesExist->execute();
 
-            if (!file_exists($sqlScriptFile)) {
-                throw new Exception("SQL file doesn't exist");
+            if ($tablesExist->rowCount() < 1) {
+                $sqlScriptFile = "./src/db/{$sqlFile}";
+
+                if (!file_exists($sqlScriptFile)) {
+                    throw new Exception("SQL file doesn't exist");
+                }
+
+                $query = file_get_contents($sqlScriptFile);
+
+                $this->connection->exec($query);
             }
-
-            $query = file_get_contents($sqlScriptFile);
-
-            $this->connection->exec($query);
         } catch (Exception $err) {
             echo "Error: {$err->getMessage()}";
         }
@@ -87,7 +92,7 @@ class Database
                 $executedStatement = $this->connection->prepare('INSERT INTO admin_users (username, password_hash) VALUES (?, ?)');
 
                 $executedStatement->execute([$username, $hashedPassword]);
-            } 
+            }
         } catch (PDOException $err) {
             echo "Query Error: {$err->getMessage()}";
         } catch (Exception $err) {
