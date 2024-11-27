@@ -6,7 +6,7 @@ use App\Utilities;
 
 $title = 'Homepage';
 $database->createTables('chtt_db.sql');
-
+$database->createAdmin('admin', 'admin');
 ?>
 
 <!DOCTYPE html>
