@@ -37,7 +37,7 @@ if (isset($_FILES['image']) && isset($_POST)) {
                 $_POST['details'],
                 $_POST['price_at_release'],
                 $_POST['status'],
-                1,
+                2,
                 $_POST['release_date']
             ], 'json');
 
