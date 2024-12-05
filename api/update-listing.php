@@ -3,7 +3,11 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "src" 
 
 use App\Utilities;
 
-$listingId = $_POST['id'];
+$listingId = filter_var($_GET['id'], FILTER_VALIDATE_FLOAT);
+
+if (!$listingId) {
+    Utilities::redirect();
+}
 
 if (isset($_FILES['image'])) {
     if ($_FILES['image']['error'] == 0) {
@@ -17,15 +21,11 @@ if (isset($_FILES['image'])) {
         $allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
         if (!in_array($imageFileType, $allowedImageTypes)) {
-            Utilities::sendJson(400, [
-                'msg' => 'Sorry, only JPG, JPEG, PNG, and GIF files are allowed for the hardware image'
-            ]);
+            Utilities::redirect();
         }
 
         if ($imageFileSize > 5000000) {
-            Utilities::sendJson(400, [
-                'msg' => 'The hardware image file is too large'
-            ]);
+            Utilities::redirect();
         }
 
         $database->query('UPDATE hardware
@@ -53,6 +53,8 @@ if (isset($_FILES['image'])) {
             $_POST['release_date'],
             $listingId
         ]);
+
+        Utilities::redirect();
     }
 } else {
     $database->query('UPDATE hardware
@@ -78,5 +80,7 @@ if (isset($_FILES['image'])) {
         $_POST['release_date'],
         $listingId
     ]);
+
+    Utilities::redirect();
 }
 
