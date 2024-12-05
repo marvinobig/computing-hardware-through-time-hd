@@ -15,7 +15,7 @@ const contributionsModalCloseBtn = document.querySelector(
 
 async function reloadContributionsTable(tableBody) {
   try {
-    const response = await fetch("/api/load-listings.php");
+    const response = await fetch("/api/read-listings.php");
     const result = await response.json();
 
     tableBody.innerHTML = "";
