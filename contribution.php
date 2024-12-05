@@ -35,6 +35,7 @@ $hardwareListing = $database->query('SELECT * FROM hardware WHERE id = ?;', [$id
                         <p><?= $hardwareListing['type'] ?></p>
                         <p><?= $hardwareListing['Manufacturer'] ?></p>
                         <p><?= $hardwareListing['status'] ?></p>
+                        <p><?= $hardwareListing['price_at_release'] ?></p>
                         <p>Release Date: <?= $hardwareListing['release_date'] ?></p>
                         <p><?= nl2br($hardwareListing['summary']) ?></p>
                     </div>
