@@ -29,6 +29,7 @@ $title = 'Update ' . $listing['name'] . ' listing';
             <h1>Update <?= $listing['name'] ?> listing</h1>
 
             <form id="contributions_upload" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id", value="<?= $listing['id'] ?>">
                 <section>
                     <label for="image">Image</label>
                     <input required type="file" name="image" id="image" accept="image/*">
