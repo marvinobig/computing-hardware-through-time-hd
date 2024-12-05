@@ -31,7 +31,7 @@ $title = 'Update ' . $listing['name'] . ' listing';
             <form id="contributions_upload" method="post" enctype="multipart/form-data">
                 <section>
                     <label for="image">Image</label>
-                    <input required type="file" name="image" id="image" accept="image/*" value="<?= $listing['image_url'] ?>">
+                    <input required type="file" name="image" id="image" accept="image/*">
                 </section>
                 <section>
                     <label for="hardware_name">Name</label>
