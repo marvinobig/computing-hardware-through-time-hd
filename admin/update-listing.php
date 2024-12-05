@@ -60,15 +60,11 @@ $title = 'Update ' . $listing['name'] . ' listing';
                 </section>
                 <section>
                     <label for="summary">Historical Significance Summary</label>
-                    <textarea name="summary" id="summary" rows="4" cols="50">
-                        <?= $listing['summary'] ?>
-                    </textarea>
+                    <textarea name="summary" id="summary" rows="4" cols="50"><?= $listing['summary'] ?></textarea>
                 </section>
                 <section>
                     <label for="details">Details</label>
-                    <textarea name="details" id="details" rows="10" cols="50">
-                        <?= $listing['details'] ?>
-                    </textarea>
+                    <textarea name="details" id="details" rows="10" cols="50"><?= $listing['details'] ?></textarea>
                 </section>
                 <section>
                     <label for="price_at_release">Price at Release</label>
