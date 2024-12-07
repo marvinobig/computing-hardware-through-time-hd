@@ -6,11 +6,11 @@ use App\Utilities;
 $listingId = filter_var($_GET['id'], FILTER_VALIDATE_FLOAT);
 
 if (!$listingId) {
-    Utilities::redirect('admin/update-listing.php', 302);
+    Utilities::redirect('admin/update-listing.php?id=' . $listingId, 302);
 }
 
 try {
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $imageFileName = uniqid() . '_' . str_replace(' ', '_', $_FILES['image']['name']);
         $imageFileTmpName = $_FILES['image']['tmp_name'];
         $imageFileSize = $_FILES['image']['size'];
@@ -27,8 +27,14 @@ try {
             Utilities::redirect('admin/update-listing.php?id=' . $listingId, 302);
         }
 
-        if (!move_uploaded_file($imageFileTmpName, $imageTargetDir . $imageFileName)) {
+        if (!move_uploaded_file($imageFileTmpName, $imageTargetDir . basename($imageFileName))) {
             throw new Exception("Failed to upload image.");
+        }
+
+        $imageToDelete = $database->query('SELECT image_url FROM hardware WHERE id = ?', [$listingId])[0]['image_url'];
+
+        if (file_exists(__DIR__ . $imageToDelete)) {
+            unlink(__DIR__ . $imageToDelete);
         }
 
         $dbResponse = $database->query(
@@ -46,7 +52,7 @@ try {
                  release_date = ?
              WHERE id = ?',
             [
-                "/hardware_image_uploads/$imageFileName",
+                str_replace(__DIR__, '', $imageTargetDir) . $imageFileName,
                 $_POST['hardware_name'],
                 $_POST['hardware_type'],
                 $_POST['manufacturer'],
@@ -96,7 +102,6 @@ try {
         }
     }
 } catch (Exception $e) {
-    // Log the error and redirect to an error page
-    error_log("Error updating listing: " . $e->getMessage());
+    echo "Error updating listing: " . $e->getMessage();
     Utilities::redirect('admin/update-listing.php?id=' . $listingId, 302);
 }

@@ -9,7 +9,7 @@ if (!$id) {
     Utilities::sendJson(400);
 }
 
-$imageToDelete = $database->query("SELECT * FROM hardware WHERE id = ?", [$id])[0]['image_url'];
+$imageToDelete = $database->query("SELECT image_url FROM hardware WHERE id = ?", [$id])[0]['image_url'];
 
 if (file_exists(__DIR__ . $imageToDelete)) {
     unlink(__DIR__ . $imageToDelete);
