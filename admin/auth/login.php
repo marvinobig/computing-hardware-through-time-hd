@@ -14,6 +14,19 @@ $title = 'Admin Login';
 
         <main>
             <h1>Admin Login</h1>
+            <form id='login-form' action="/api/log-user.php" method="post">
+                <section>
+                    <label for="username">Username</label>
+                    <input required type="text" id="username">
+                </section>
+                <section>
+                    <label for="password">Password</label>
+                    <input required type="password" id="password">
+                </section>
+                <section>
+                    <button type="submit">Login</button>
+                </section>
+            </form>
         </main>
 
         <?php Utilities::loadPartial('footer') ?>
