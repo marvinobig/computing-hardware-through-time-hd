@@ -58,4 +58,14 @@ class Utilities
         header('Location: /' . $path, true, $statusCode);
         exit;
     }
+
+    public static function guard() : bool {
+        session_start();
+
+        if ($_SESSION['user']) {
+            return true;
+        }
+
+        return false;
+    }
 }
