@@ -3,7 +3,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "src" 
 
 use App\Utilities;
 
-$listingId = filter_var($_GET['id'], FILTER_VALIDATE_FLOAT);
+$listingId = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
 if (!$listingId) {
     Utilities::redirect('admin/update-listing.php?id=' . $listingId, 302);
