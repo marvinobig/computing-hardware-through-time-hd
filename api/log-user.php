@@ -4,9 +4,6 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "src" 
 use App\Utilities;
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
-    session_set_cookie_params(1800);
-    session_start();
-
     $username = $_POST["username"];
     $password = $_POST["password"];
 
