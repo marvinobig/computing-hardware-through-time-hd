@@ -28,14 +28,10 @@ CREATE TABLE IF NOT EXISTS `hardware` (
 
 CREATE TABLE IF NOT EXISTS `user_activity` (
   `id` integer PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `admin_id` integer NOT NULL,
+  `admin_username` varchar(255) NOT NULL,
   `action_type` varchar(255) COMMENT 'e.g. Create, Update, Delete' NOT NULL,
-  `hardware_id` integer NOT NULL,
+  `hardware_name` varchar(255) NOT NULL,
   `happened_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 ALTER TABLE `hardware` ADD FOREIGN KEY (`user_id`) REFERENCES `admin_users` (`id`);
-
-ALTER TABLE `user_activity` ADD FOREIGN KEY (`admin_id`) REFERENCES `admin_users` (`id`);
-
-ALTER TABLE `user_activity` ADD FOREIGN KEY (`hardware_id`) REFERENCES `hardware` (`id`);
