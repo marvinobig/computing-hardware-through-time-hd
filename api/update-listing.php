@@ -9,6 +9,7 @@ if (!Utilities::guard()) {
 
 $listingId = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 $userId = $_SESSION['user']['user_id'];
+$username = $_SESSION['user']['username'];
 
 if (!$listingId) {
     Utilities::redirect('admin/update-listing.php?id=' . $listingId, 302);
@@ -73,6 +74,8 @@ try {
         );
 
         if ($dbResponse) {
+            $database->query('INSERT INTO user_activity (admin_username, action_type, hardware_name) VALUES (?, ?, ?)', [$username, 'update', $_POST['hardware_name']]);
+
             Utilities::redirect('admin/dashboard.php', 303);
         }
     } else {
@@ -104,6 +107,8 @@ try {
         );
 
         if ($dbResponse) {
+            $database->query('INSERT INTO user_activity (admin_username, action_type, hardware_name) VALUES (?, ?, ?)', [$username, 'update', $_POST['hardware_name']]);
+            
             Utilities::redirect('admin/dashboard.php', 303);
         }
     }

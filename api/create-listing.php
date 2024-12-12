@@ -11,6 +11,7 @@ if (!Utilities::guard()) {
 }
 
 $userId = $_SESSION['user']['user_id'];
+$username = $_SESSION['user']['username'];
 
 if (isset($_FILES['image']) && isset($_POST)) {
     if ($_FILES['image']['error'] == 0) {
@@ -51,6 +52,8 @@ if (isset($_FILES['image']) && isset($_POST)) {
 
             if ($dbResponse) {
                 if (move_uploaded_file($imageFileTmpName, $imageTargetDir . basename($imageFileName))) {
+                    $database->query('INSERT INTO user_activity (admin_username, action_type, hardware_name) VALUES (?, ?, ?)', [$username, 'create', $_POST['hardware_name']]);
+
                     Utilities::sendJson(201, [
                         'msg' => 'The hardware and its image has successfully been listed'
                     ]);
