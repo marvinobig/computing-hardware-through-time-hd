@@ -1,3 +1,8 @@
+<?php
+session_set_cookie_params(1800);
+session_start() 
+?>
+
 <nav>
     <a href="/">CHTT</a>
     <section>
