@@ -3,6 +3,10 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "src" 
 
 use App\Utilities;
 
+if (!Utilities::guard()) {
+    Utilities::redirect('admin/auth/login.php', 303);
+}
+
 $listingId = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
 if (!$listingId) {
