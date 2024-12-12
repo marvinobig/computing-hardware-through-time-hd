@@ -5,6 +5,9 @@ const contributionsTable = document.querySelector("#contributions_table");
 const contributionsTableBody = document.querySelector(
   "#contributions_table tbody"
 );
+const historyTableBody = document.querySelector(
+  "#history_table tbody"
+);
 const contributionsModal = document.querySelector("#create_modal");
 const contributionsModalOpenBtn = document.querySelector(
   "#create_modal_open_btn"
@@ -58,6 +61,46 @@ async function reloadContributionsTable(tableBody) {
   }
 }
 
+async function reloadHistoryTable(tableBody) {
+  try {
+    const response = await fetch("/api/read-history.php");
+    const result = await response.json();
+
+    tableBody.innerHTML = "";
+
+    if (result.history.length > 0) {
+      result.history.forEach((activity) => {
+        const createdDate = new Date(activity.happened_at);
+
+        const row = `
+        <tr>
+          <td>
+            ${activity.admin_username}
+          </td>
+          <td>${activity.action_type}</td>
+          <td>
+            ${activity.hardware_name}
+          </td>
+          <td>${createdDate.toLocaleDateString()} at ${createdDate.toLocaleTimeString()}</td>
+        </tr>
+      `;
+
+        tableBody.insertAdjacentHTML("beforeend", row);
+      });
+    } else {
+      const row = `
+        <tr>
+          <td class="empty_table_msg" colspan="4">Nothing to display</td>
+        </tr>
+      `;
+
+      tableBody.insertAdjacentHTML("beforeend", row);
+    }
+  } catch (err) {
+    console.error(`Error loading contributions: ${err}`);
+  }
+}
+
 if (contributionsInsertForm) {
   contributionsInsertForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -78,6 +121,7 @@ if (contributionsInsertForm) {
         alert(result.msg);
         form.reset();
         reloadContributionsTable(contributionsTableBody);
+        reloadHistoryTable(historyTableBody);
         contributionsModal.close();
       }
     } catch (err) {
@@ -107,6 +151,7 @@ if (contributionsTable) {
           } else {
             alert(responseMsg);
             reloadContributionsTable(contributionsTableBody);
+            reloadHistoryTable(historyTableBody);
           }
         } catch (err) {
           alert(err.message);
