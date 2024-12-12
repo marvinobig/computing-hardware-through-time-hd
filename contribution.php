@@ -33,7 +33,7 @@ $hardwareListing = $database->query('SELECT * FROM hardware WHERE id = ?;', [$id
                     <img src="<?= $hardwareListing['image_url'] ?>" alt="<?= $hardwareListing['name'] ?>">
                     <div>
                         <p><?= $hardwareListing['type'] ?></p>
-                        <p><?= $hardwareListing['Manufacturer'] ?></p>
+                        <p><?= $hardwareListing['manufacturer'] ?></p>
                         <p><?= $hardwareListing['status'] ?></p>
                         <p><?= $hardwareListing['price_at_release'] ?></p>
                         <p>Release Date: <?= $hardwareListing['release_date'] ?></p>

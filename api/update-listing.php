@@ -55,7 +55,7 @@ try {
                  status = ?,
                  user_id = ?,
                  release_date = ?
-             WHERE id = ?',
+             WHERE id = ? AND user_id = ?',
             [
                 str_replace(__DIR__, '', $imageTargetDir) . $imageFileName,
                 $_POST['hardware_name'],
@@ -68,6 +68,7 @@ try {
                 $userId,
                 $_POST['release_date'],
                 $listingId,
+                $userId
             ]
         );
 
