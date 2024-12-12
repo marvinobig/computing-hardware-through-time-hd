@@ -4,6 +4,12 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "src" 
 
 use App\Utilities;
 
+if (!Utilities::guard()) {
+    Utilities::sendJson(403, [
+        'msg' => 'You are not authorized to access this endpoint'
+    ]);
+}
+
 if (isset($_FILES['image']) && isset($_POST)) {
     if ($_FILES['image']['error'] == 0) {
         $imageFileName = uniqid() . '_' . str_replace(' ', '_', $_FILES['image']['name']);
