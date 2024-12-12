@@ -60,6 +60,7 @@ class Utilities
     }
 
     public static function guard() : bool {
+        session_set_cookie_params(1800);
         session_start();
 
         if ($_SESSION['user']) {
