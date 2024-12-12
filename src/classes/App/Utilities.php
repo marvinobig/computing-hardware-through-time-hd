@@ -47,7 +47,7 @@ class Utilities
             header('Content-Type: application/json');
             http_response_code($responseCode);
             echo json_encode([
-                'error' => $err->getMessage(),
+                'msg' => $err->getMessage(),
             ]);
 
             exit;

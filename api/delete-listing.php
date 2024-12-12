@@ -3,6 +3,12 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "src" 
 
 use App\Utilities;
 
+if (!Utilities::guard()) {
+    Utilities::sendJson(403, [
+        'msg' => 'You are not authorized to access this endpoint'
+    ]);
+}
+
 $id = filter_var($_GET["id"], FILTER_VALIDATE_INT);
 
 if (!$id) {
