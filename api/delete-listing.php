@@ -10,6 +10,7 @@ if (!Utilities::guard()) {
 }
 
 $id = filter_var($_GET["id"], FILTER_VALIDATE_INT);
+$userId = $_SESSION['user']['user_id'];
 
 if (!$id) {
     Utilities::sendJson(400);
@@ -21,7 +22,7 @@ if (file_exists(__DIR__ . $imageToDelete)) {
     unlink(__DIR__ . $imageToDelete);
 }
 
-$response = $database->query('DELETE FROM hardware WHERE id = ?', [$id]);
+$response = $database->query('DELETE FROM hardware WHERE id = ? AND user_id = ?', [$id, $userId]);
 
 if ($response < 1) {
     Utilities::sendJson(400);
