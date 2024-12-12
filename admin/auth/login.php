@@ -4,6 +4,10 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." .
 use App\Utilities;
 
 $title = 'Admin Login';
+
+if (Utilities::guard()) {
+    Utilities::redirect('admin/dashboard.php', 303);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
