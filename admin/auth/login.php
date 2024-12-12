@@ -17,11 +17,11 @@ $title = 'Admin Login';
             <form id='login-form' action="/api/log-user.php" method="post">
                 <section>
                     <label for="username">Username</label>
-                    <input required type="text" id="username">
+                    <input required type="text" id="username" name="username">
                 </section>
                 <section>
                     <label for="password">Password</label>
-                    <input required type="password" id="password">
+                    <input required type="password" id="password" name="password">
                 </section>
                 <section>
                     <button type="submit">Login</button>
