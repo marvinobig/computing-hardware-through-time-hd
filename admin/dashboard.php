@@ -17,7 +17,10 @@ if (!Utilities::guard()) {
         <?php Utilities::loadPartial('nav') ?>
 
         <main>
-            <h1>Dashboard</h1>
+            <header>
+                <h1>Dashboard</h1>
+                <h3>Welcome, <?= $_SESSION['user']['username'] ?>!</h3>
+            </header>
 
             <?php Utilities::loadPartial('contributions-insert') ?>
             <?php Utilities::loadPartial('listings-table', ['database' => $database]) ?>
