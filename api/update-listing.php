@@ -8,6 +8,7 @@ if (!Utilities::guard()) {
 }
 
 $listingId = filter_var($_GET['id'], FILTER_VALIDATE_INT);
+$userId = $_SESSION['user']['user_id'];
 
 if (!$listingId) {
     Utilities::redirect('admin/update-listing.php?id=' . $listingId, 302);
@@ -64,7 +65,7 @@ try {
                 $_POST['details'],
                 $_POST['price_at_release'],
                 $_POST['status'],
-                2, // Replace this with the actual user ID
+                $userId,
                 $_POST['release_date'],
                 $listingId,
             ]
@@ -95,7 +96,7 @@ try {
                 $_POST['details'],
                 $_POST['price_at_release'],
                 $_POST['status'],
-                2, // Replace this with the actual user ID
+                $userId,
                 $_POST['release_date'],
                 $listingId,
             ]
