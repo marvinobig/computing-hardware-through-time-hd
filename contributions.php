@@ -7,6 +7,15 @@ $title = 'Contributions';
 
 $hardwareListings = $database->query('SELECT * FROM hardware;');
 
+if ($_GET['search']) {
+    $search = $_GET['search'];
+
+    $hardwareListings = array_filter($hardwareListings, function ($listing) use ($search) {
+        if (str_contains($listing['name'], $search)) {
+            return $listing;
+        }
+    });
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +26,10 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
         <?php Utilities::loadPartial('nav') ?>
 
         <main>
-            <h1>Contributions</h1>
+            <header>
+                <h1>Contributions</h1>
+                <?php Utilities::loadPartial('search') ?>
+            </header>
 
             <section>
                 <?php if ($hardwareListings): ?>
@@ -44,4 +56,5 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
 
         <?php Utilities::loadPartial('footer') ?>
     </body>
+
 </html>
