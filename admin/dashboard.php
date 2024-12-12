@@ -23,9 +23,14 @@ if (!Utilities::guard()) {
             </header>
 
             <?php Utilities::loadPartial('contributions-insert') ?>
-            <?php Utilities::loadPartial('listings-table', ['database' => $database]) ?>
+
+            <section>
+                <?php Utilities::loadPartial('listings-table', ['database' => $database]) ?>
+                <?php Utilities::loadPartial('history-table', ['database' => $database]) ?>
+            </section>
         </main>
 
         <?php Utilities::loadPartial('footer') ?>
     </body>
+
 </html>
