@@ -10,6 +10,8 @@ if (!Utilities::guard()) {
     ]);
 }
 
+$userId = $_SESSION['user']['user_id'];
+
 if (isset($_FILES['image']) && isset($_POST)) {
     if ($_FILES['image']['error'] == 0) {
         $imageFileName = uniqid() . '_' . str_replace(' ', '_', $_FILES['image']['name']);
@@ -43,7 +45,7 @@ if (isset($_FILES['image']) && isset($_POST)) {
                 $_POST['details'],
                 $_POST['price_at_release'],
                 $_POST['status'],
-                2,
+                $userId,
                 $_POST['release_date']
             ], 'json');
 
