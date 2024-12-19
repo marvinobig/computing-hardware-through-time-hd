@@ -30,7 +30,7 @@ $database->createAdmin('admin', 'admin');
             </div>
         </header>
 
-        <main>
+        <main id="homepage">
             <section class="section-title">
                 <h2>Explore Features</h2>
             </section>
