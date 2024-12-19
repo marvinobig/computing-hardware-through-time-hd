@@ -15,6 +15,13 @@ const contributionsModalOpenBtn = document.querySelector(
 const contributionsModalCloseBtn = document.querySelector(
   "#create_modal_close_btn"
 );
+const filtersModal = document.querySelector("#filters_form");
+const filtersModalOpenBtn = document.querySelector(
+  "#filters_form_open_btn"
+);
+const filtersModalCloseBtn = document.querySelector(
+  "#filters_form_close_btn"
+);
 
 async function reloadContributionsTable(tableBody) {
   try {
@@ -168,5 +175,15 @@ if (contributionsModal) {
 
   contributionsModalCloseBtn.addEventListener("click", () => {
     contributionsModal.close();
+  });
+}
+
+if (filtersModal) {
+  filtersModalOpenBtn.addEventListener("click", () => {
+    filtersModal.showModal();
+  });
+
+  filtersModalCloseBtn.addEventListener("click", () => {
+    filtersModal.close();
   });
 }
