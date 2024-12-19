@@ -11,7 +11,7 @@ This project will be a historical database hosting data on hardware contribution
 ## Features
 - Admin user accounts to access admin dashboard
 - CRUD on computing hardware listings through admin dashboard
-- Filtering of posts by year, manufacturer, category and status
+- Filtering of posts by year, hardware type and status
 - Search for hardware by name 
 - Database input sanitization using prepared statements.
 - Asynchronous updates without a page reload.
