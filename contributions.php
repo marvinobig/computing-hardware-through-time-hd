@@ -29,6 +29,7 @@ if ($_GET['search']) {
             <header>
                 <h1>Contributions</h1>
                 <?php Utilities::loadPartial('search') ?>
+                <?php Utilities::loadPartial('filter-form', ['database' => $database]) ?>
             </header>
 
             <section>
