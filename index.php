@@ -32,7 +32,7 @@ $database->createAdmin('admin', 'admin');
         </header>
 
         <main>
-            <section>
+            <section class="section-title">
                 <h2>Explore Features</h2>
             </section>
 
@@ -49,10 +49,7 @@ $database->createAdmin('admin', 'admin');
             <section>
                 <div class="content">
                     <h3>Filter Hardware Listings</h3>
-                    <p>Filter hardware listings based on important criteria such as release year, manufacturer
-                        (brand),
-                        product type, or status (e.g., available, out of stock). This makes it easier to narrow down
-                        your search and find exactly what you're looking for in the database.</p>
+                    <p>Filter hardware listings based on important criteria such as year, hardware type and status (e.g., obsolete, fully supported). This makes it easier to narrow down your search and find exactly what you're looking for in the database.</p>
                 </div>
             </section>
 
