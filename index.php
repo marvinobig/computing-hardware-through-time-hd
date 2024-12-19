@@ -24,10 +24,9 @@ $database->createAdmin('admin', 'admin');
                 <p>Our platform hosts a comprehensive database of hardware contributions to the computing industry.
                     The
                     listings include information on various hardware, such as its release year, manufacturer,
-                    category,
-                    and status. You can explore these contributions by using various tools such as search,
-                    filtering,
-                    and viewing historical updates.</p>
+                    hardware type,
+                    and status. You can explore these contributions by using tools such as search and filtering options.
+                </p>
             </div>
         </header>
 
@@ -49,7 +48,9 @@ $database->createAdmin('admin', 'admin');
             <section>
                 <div class="content">
                     <h3>Filter Hardware Listings</h3>
-                    <p>Filter hardware listings based on important criteria such as year, hardware type and status (e.g., obsolete, fully supported). This makes it easier to narrow down your search and find exactly what you're looking for in the database.</p>
+                    <p>Filter hardware listings based on important criteria such as year, hardware type and status
+                        (e.g., obsolete, fully supported). This makes it easier to narrow down your search and find
+                        exactly what you're looking for in the database.</p>
                 </div>
             </section>
 
@@ -57,7 +58,7 @@ $database->createAdmin('admin', 'admin');
                 <div class="content">
                     <h3>View Detailed Hardware Information</h3>
                     <p>Each hardware listing includes detailed information such as the product name, manufacturer,
-                        release date, and more. You can explore each entry to learn about the hardware’s
+                        release date, and more. You can explore each entry to learn about the hardware
                         contribution to
                         the computing industry.</p>
                 </div>
@@ -65,22 +66,20 @@ $database->createAdmin('admin', 'admin');
 
             <section>
                 <div class="content">
-                    <h3>Track Changes to Hardware Listings</h3>
+                    <h3>Track Changes to Hardware Listings as an Admin</h3>
                     <p>Our platform keeps a history of changes made to hardware listings. You can see the updates
                         and
                         revisions to each entry, providing full transparency on how the information evolves over
-                        time.
+                        time within the admin dashboard.
                     </p>
                 </div>
             </section>
 
             <section>
                 <div class="content">
-                    <h3>Stay Updated Without Page Reloads</h3>
-                    <p>When exploring hardware details or updating your search and filters, the platform instantly
-                        shows
-                        changes without needing to reload the page. This provides a faster and smoother browsing
-                        experience.</p>
+                    <h3>Update content Without Page Reloads on The Admin Dashboard</h3>
+                    <p>When adding or deleting hardware contributions, the platform instantly shows changes without
+                        needing to reload the page. This provides a faster and smoother admin experience.</p>
                 </div>
             </section>
         </main>
