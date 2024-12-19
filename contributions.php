@@ -71,10 +71,12 @@ if ($_GET['status'] && $_GET['status'] !== 'none') {
         <?php Utilities::loadPartial('nav') ?>
 
         <main>
-            <header>
-                <h1>Contributions</h1>
-                <?php Utilities::loadPartial('search') ?>
-                <?php Utilities::loadPartial('filter-form', ['database' => $database]) ?>
+            <header id="contributions_header">
+                <div class="content">
+                    <h1>Contributions</h1>
+                    <?php Utilities::loadPartial('search') ?>
+                    <?php Utilities::loadPartial('filter-form', ['database' => $database]) ?>
+                </div>
             </header>
 
             <section>
