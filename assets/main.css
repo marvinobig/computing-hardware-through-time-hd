@@ -83,3 +83,69 @@ textarea:not([rows]) {
 Styling above taken from:
 A (more) Modern CSS Reset (no date) Piccalilli. Available at: https://piccalil.li/blog/a-more-modern-css-reset/ (Accessed: 25 November 2024).
 */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 1.6rem 1rem;
+  box-shadow: 0px 1px 14px #0000004f;
+}
+
+nav section {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+#inner-nav {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+#site-title {
+  font-weight: bolder;
+  font-size: 2.2rem;
+}
+
+#logout {
+  font-size: 1.5rem;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 1.6rem;
+  padding: 8px 18px;
+  transition: ease-in 0.1s;
+}
+
+#logout:hover {
+  background-color: #383535;
+  transition: ease-in 0.1s;
+}
+
+nav a:not([id]) {
+  font-size: 1.5rem;
+}
+
+nav a:not([id]):hover {
+  text-decoration: underline;
+}
+
