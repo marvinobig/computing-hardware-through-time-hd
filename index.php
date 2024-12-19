@@ -16,7 +16,7 @@ $database->createAdmin('admin', 'admin');
     <body>
         <?php Utilities::loadPartial('nav') ?>
 
-        <header>
+        <header id="homepage-header">
             <div class="content">
                 <h1>Welcome to the Computing Hardware Through Time Database</h1>
                 <p>Discover key milestones and contributions to the computing industry over time.</p>
