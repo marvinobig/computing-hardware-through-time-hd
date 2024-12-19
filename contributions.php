@@ -16,6 +16,51 @@ if ($_GET['search']) {
         }
     });
 }
+
+if ($_GET['year-from'] && $_GET['year-from'] !== 'none') {
+    $yearFrom = (int) $_GET['year-from'];
+
+    $hardwareListings = array_filter($hardwareListings, function ($listing) use ($yearFrom) {
+        $releaseDate = (int) date('Y', strtotime($listing['release_date']));
+
+        if ($releaseDate >= $yearFrom) {
+            return $listing;
+        }
+    });
+}
+
+if ($_GET['year-to'] && $_GET['year-to'] !== 'none') {
+    $yearFrom = (int) $_GET['year-to'];
+
+    $hardwareListings = array_filter($hardwareListings, function ($listing) use ($yearFrom) {
+        $releaseDate = (int) date('Y', strtotime($listing['release_date']));
+
+        if ($releaseDate <= $yearFrom) {
+            return $listing;
+        }
+    });
+}
+
+if ($_GET['type'] && $_GET['type'] !== 'none') {
+    $type = $_GET['type'];
+
+    $hardwareListings = array_filter($hardwareListings, function ($listing) use ($type) {
+        if ($listing['type'] === $type) {
+            return $listing;
+        }
+    });
+}
+
+if ($_GET['status'] && $_GET['status'] !== 'none') {
+    $status = $_GET['status'];
+
+    $hardwareListings = array_filter($hardwareListings, function ($listing) use ($status) {
+        if ($listing['status'] === $status) {
+            return $listing;
+        }
+    });
+}
+
 ?>
 
 <!DOCTYPE html>
