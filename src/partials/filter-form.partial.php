@@ -11,7 +11,7 @@ $statuses = $database->query("SELECT DISTINCT status as status FROM hardware");
 
 ?>
 
-<button id="filters_form_open_btn" type="button">
+<button id="filters_form_open_btn" type="button" class="btn">
     Filters
 </button>
 <dialog id="filters_form">
