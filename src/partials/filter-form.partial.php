@@ -37,8 +37,8 @@ $statuses = $database->query("SELECT DISTINCT status as status FROM hardware");
             </select>
         </section>
         <section>
-            <label for="hardware_type">Hardware Type</label>
-            <select name="hardware_type" id="hardware_type">
+            <label for="type">Hardware Type</label>
+            <select name="type" id="type">
                 <?php foreach ($types as $type): ?>
                     <option value="<?= $type['type'] ?>"><?= $type['type'] ?></option>
                 <?php endforeach; ?>
