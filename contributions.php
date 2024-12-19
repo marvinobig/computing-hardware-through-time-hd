@@ -73,9 +73,8 @@ if ($_GET['status'] && $_GET['status'] !== 'none') {
         <main>
             <header id="contributions_header">
                 <div class="content">
-                    <h1>Contributions</h1>
-                    <?php Utilities::loadPartial('search') ?>
                     <?php Utilities::loadPartial('filter-form', ['database' => $database]) ?>
+                    <?php Utilities::loadPartial('search') ?>
                 </div>
             </header>
 
