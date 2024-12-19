@@ -1,4 +1,4 @@
-console.log("hello world");
+console.log("CHTT JavaScript loaded");
 
 const contributionsInsertForm = document.querySelector("#contributions_upload");
 const contributionsTable = document.querySelector("#contributions_table");
