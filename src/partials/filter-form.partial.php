@@ -1,8 +1,8 @@
 <?php
-$years_asc = $database->query("SELECT DISTINCT YEAR(release_date) AS year FROM hardware ORDER BY year ASC;
+$yearsAsc = $database->query("SELECT DISTINCT YEAR(release_date) AS year FROM hardware ORDER BY year ASC;
 ");
 
-$years_desc = $database->query("SELECT DISTINCT YEAR(release_date) AS year FROM hardware ORDER BY year DESC;
+$yearsDesc = $database->query("SELECT DISTINCT YEAR(release_date) AS year FROM hardware ORDER BY year DESC;
 ");
 
 $types = $database->query("SELECT DISTINCT type as type FROM hardware");
@@ -23,7 +23,7 @@ $statuses = $database->query("SELECT DISTINCT status as status FROM hardware");
         <section>
             <label for="year-from">Year (From)</label>
             <select name="year-from" id="year-from">
-                <?php foreach ($years_asc as $year): ?>
+                <?php foreach ($yearsAsc as $year): ?>
                     <option value="<?= $year['year'] ?>"><?= $year['year'] ?></option>
                 <?php endforeach; ?>
             </select>
@@ -31,7 +31,7 @@ $statuses = $database->query("SELECT DISTINCT status as status FROM hardware");
         <section>
             <label for="year-to">Year (To)</label>
             <select name="year-to" id="year-to">
-                <?php foreach ($years_desc as $year): ?>
+                <?php foreach ($yearsDesc as $year): ?>
                     <option value="<?= $year['year'] ?>"><?= $year['year'] ?></option>
                 <?php endforeach; ?>
             </select>
