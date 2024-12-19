@@ -1,5 +1,5 @@
 <nav>
-    <a href="/">CHTT</a>
+    <a id="site-title" href="/">CHTT</a>
     <section>
         <a href="/contributions.php">Contributions</a>
         <?php if (!isset($_SESSION['user'])): ?>
