@@ -37,7 +37,7 @@ $hardwareListing = $database->query('SELECT * FROM hardware WHERE id = ?;', [$id
                             <p class="tags"><?= $hardwareListing['manufacturer'] ?></p>
                             <p class="tags"><?= ucwords(str_replace('_', ' ', $hardwareListing['status'])) ?></p>
                             <p class="tags">£<?= $hardwareListing['price_at_release'] ?></p>
-                            <p class="tags"><?= date("d-m-Y", strtotime(nl2br($hardwareListing['release_date']))) ?></p>
+                            <p class="tags"><?= date("dS M Y", strtotime(nl2br($hardwareListing['release_date']))) ?></p>
                         </div>
                     </section>
                     <section class="contribution_info">
