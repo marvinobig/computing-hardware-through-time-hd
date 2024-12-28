@@ -43,7 +43,7 @@ $statuses = $database->query("SELECT DISTINCT status as status FROM hardware");
             <select name="type" id="type">
                 <option selected value="none">N/A</option>
                 <?php foreach ($types as $type): ?>
-                    <option value="<?= $type['type'] ?>"><?= $type['type'] ?></option>
+                    <option value="<?= $type['type'] ?>"><?= strtoupper($type['type']) ?></option>
                 <?php endforeach; ?>
             </select>
         </section>
@@ -52,7 +52,7 @@ $statuses = $database->query("SELECT DISTINCT status as status FROM hardware");
             <select required name="status" id="status">
                 <option selected value="none">N/A</option>
                 <?php foreach ($statuses as $status): ?>
-                    <option value="<?= $status['status'] ?>"><?= $status['status'] ?></option>
+                    <option value="<?= $status['status'] ?>"><?= ucwords(str_replace('_', ' ', $status['status'])) ?></option>
                 <?php endforeach; ?>
             </select>
         </section>
