@@ -24,30 +24,33 @@ $hardwareListing = $database->query('SELECT * FROM hardware WHERE id = ?;', [$id
     <body>
         <?php Utilities::loadPartial('nav') ?>
 
-        <main>
+        <main class="contribution_page">
             <?php if ($error_msg): ?>
                 <h1><?= $error_msg ?></h1>
             <?php elseif ($hardwareListing): ?>
-                <h1>Contribution: <?= $hardwareListing['name'] ?></h1>
-                <section>
-                    <img src="<?= $hardwareListing['image_url'] ?>" alt="<?= $hardwareListing['name'] ?>">
-                    <div>
-                        <p><?= $hardwareListing['type'] ?></p>
-                        <p><?= $hardwareListing['manufacturer'] ?></p>
-                        <p><?= ucwords(str_replace('_', ' ', $hardwareListing['status'])) ?></p>
-                        <p><?= $hardwareListing['price_at_release'] ?></p>
-                        <p>Release Date: <?= $hardwareListing['release_date'] ?></p>
-                        <p><?= nl2br($hardwareListing['summary']) ?></p>
-                    </div>
-                </section>
-                <section>
-                    <p><?= nl2br($hardwareListing['details']) ?></p>
+                <section class="contribution_content">
+                    <h1>Contribution: <?= $hardwareListing['name'] ?></h1>
+                    <section class="contribution_meta-data">
+                        <img src="<?= $hardwareListing['image_url'] ?>" alt="<?= $hardwareListing['name'] ?>">
+                        <div>
+                            <p><?= $hardwareListing['type'] ?></p>
+                            <p><?= $hardwareListing['manufacturer'] ?></p>
+                            <p><?= ucwords(str_replace('_', ' ', $hardwareListing['status'])) ?></p>
+                            <p><?= $hardwareListing['price_at_release'] ?></p>
+                            <p>Release Date: <?= $hardwareListing['release_date'] ?></p>
+                            <p><?= nl2br($hardwareListing['summary']) ?></p>
+                        </div>
+                    </section>
+                    <section class="contribution_info">
+                        <p><?= nl2br($hardwareListing['details']) ?></p>
+                    </section>
                 </section>
             <?php else: ?>
-                <h1>That listing doesn't exist</h1>
+                <h1 class="not-exist">That listing doesn't exist</h1>
             <?php endif ?>
         </main>
 
         <?php Utilities::loadPartial('footer') ?>
     </body>
+
 </html>

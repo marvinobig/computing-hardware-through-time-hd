@@ -96,7 +96,7 @@ if ($_GET['status'] && $_GET['status'] !== 'none') {
                         </a>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <h2>Nothing to display</h2>
+                    <h2 class="not-exist">Nothing to display</h2>
                 <?php endif ?>
             </section>
         </main>
