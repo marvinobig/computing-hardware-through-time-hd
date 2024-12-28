@@ -78,18 +78,18 @@ if ($_GET['status'] && $_GET['status'] !== 'none') {
                 </div>
             </header>
 
-            <section>
+            <section class="card_container">
                 <?php if ($hardwareListings): ?>
                     <?php foreach ($hardwareListings as $hardware): ?>
                         <a href="/contribution.php?id=<?= $hardware['id'] ?>">
-                            <article>
+                            <article class="contribution_card">
                                 <img src="<?= $hardware['image_url'] ?>" alt="<?= $hardware['name'] ?>">
-                                <div>
+                                <div class="card_content">
                                     <h3><?= $hardware['name'] ?></h3>
                                     <p><?= nl2br($hardware['summary']) ?></p>
-                                    <div>
-                                        <p><?= ucwords(str_replace('_', ' ', $hardware['status'])) ?></p>
-                                        <p>Release Date: <?= nl2br($hardware['release_date']) ?></p>
+                                    <div class="tags_container">
+                                        <p class="tags"><?= ucwords(str_replace('_', ' ', $hardware['status'])) ?></p>
+                                        <p class="tags">Release Date: <?= nl2br($hardware['release_date']) ?></p>
                                     </div>
                                 </div>
                             </article>
