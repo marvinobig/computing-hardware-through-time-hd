@@ -89,7 +89,7 @@ if ($_GET['status'] && $_GET['status'] !== 'none') {
                                     <p><?= nl2br($hardware['summary']) ?></p>
                                     <div class="tags_container">
                                         <p class="tags"><?= ucwords(str_replace('_', ' ', $hardware['status'])) ?></p>
-                                        <p class="tags">Release Date: <?= nl2br($hardware['release_date']) ?></p>
+                                        <p class="tags"><?= nl2br($hardware['release_date']) ?></p>
                                     </div>
                                 </div>
                             </article>
