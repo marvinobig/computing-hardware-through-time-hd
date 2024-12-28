@@ -29,7 +29,7 @@ $hardwareListing = $database->query('SELECT * FROM hardware WHERE id = ?;', [$id
                 <h1><?= $error_msg ?></h1>
             <?php elseif ($hardwareListing): ?>
                 <section class="contribution_content">
-                    <h1>Contribution: <?= $hardwareListing['name'] ?></h1>
+                    <h1><?= $hardwareListing['name'] ?></h1>
                     <section class="contribution_meta-data">
                         <img src="<?= $hardwareListing['image_url'] ?>" alt="<?= $hardwareListing['name'] ?>">
                         <div class="tags_container">
