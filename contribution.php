@@ -32,13 +32,12 @@ $hardwareListing = $database->query('SELECT * FROM hardware WHERE id = ?;', [$id
                     <h1>Contribution: <?= $hardwareListing['name'] ?></h1>
                     <section class="contribution_meta-data">
                         <img src="<?= $hardwareListing['image_url'] ?>" alt="<?= $hardwareListing['name'] ?>">
-                        <div>
-                            <p><?= $hardwareListing['type'] ?></p>
-                            <p><?= $hardwareListing['manufacturer'] ?></p>
-                            <p><?= ucwords(str_replace('_', ' ', $hardwareListing['status'])) ?></p>
-                            <p><?= $hardwareListing['price_at_release'] ?></p>
-                            <p>Release Date: <?= $hardwareListing['release_date'] ?></p>
-                            <p><?= nl2br($hardwareListing['summary']) ?></p>
+                        <div class="tags_container">
+                            <p class="tags"><?= strtoupper($hardwareListing['type']) ?></p>
+                            <p class="tags"><?= $hardwareListing['manufacturer'] ?></p>
+                            <p class="tags"><?= ucwords(str_replace('_', ' ', $hardwareListing['status'])) ?></p>
+                            <p class="tags">£<?= $hardwareListing['price_at_release'] ?></p>
+                            <p class="tags"><?= date("d-m-Y", strtotime(nl2br($hardwareListing['release_date']))) ?></p>
                         </div>
                     </section>
                     <section class="contribution_info">
