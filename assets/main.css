@@ -138,6 +138,20 @@ body {
   text-align: center;
 }
 
+.chtt_input {
+  display: flex;
+}
+
+.chtt_input input {
+  border-right: 0;
+  border: 1px solid var(--background-color);
+}
+
+.chtt_input input:focus-within {
+  outline: 0;
+  border: 3px solid var(--background-color);
+}
+
 /* Navigation */
 nav {
   display: flex;
