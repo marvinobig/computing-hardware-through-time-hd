@@ -16,21 +16,19 @@ if (Utilities::guard()) {
     <body>
         <?php Utilities::loadPartial('nav') ?>
 
-        <main>
-            <h1>Admin Login</h1>
-            <form id='login-form' action="/api/log-user.php" method="post">
-                <section>
-                    <label for="username">Username</label>
-                    <input required type="text" id="username" name="username">
-                </section>
-                <section>
-                    <label for="password">Password</label>
-                    <input required type="password" id="password" name="password">
-                </section>
-                <section>
-                    <button type="submit">Login</button>
-                </section>
-            </form>
+        <main id="login_page">
+            <section class="login_form_container">
+                <h1>Admin Login</h1>
+                <form id='login_form' action="/api/log-user.php" method="post">
+                    <label for="username">Username
+                        <input required type="text" id="username" name="username">
+                    </label>
+                    <label for="password">Password
+                        <input required type="password" id="password" name="password">
+                    </label>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </section>
         </main>
 
         <?php Utilities::loadPartial('footer') ?>

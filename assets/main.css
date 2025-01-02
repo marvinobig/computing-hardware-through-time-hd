@@ -154,12 +154,18 @@ label:not([class]) {
 label:not([class]) input, select {
   height: 100%;
   width: 334px;
+  padding: 0 0.5rem;
   border: 1px solid var(--background-color);
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   background-color: var(--color);
 }
 
 label:not([class]) select:focus-within {
+  outline: 0;
+  border: 3px solid var(--background-color);
+}
+
+label:not([class]) input:focus-within {
   outline: 0;
   border: 3px solid var(--background-color);
 }
@@ -268,6 +274,7 @@ footer {
   flex-direction: column;
   align-items: center;
   margin-top: 3rem;
+  padding: 0 3rem;
 }
 
 .content {
@@ -412,3 +419,29 @@ footer {
 }
 
 /* login form */
+#login_page {
+  display: flex;
+  justify-content: center;
+}
+
+.login_form_container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--element-gap);
+  padding: 3rem;
+  max-width: var(--max-width);
+}
+
+.login_form_container h1 {
+  margin: 0;
+}
+
+#login_form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--element-gap);
+  width: 493px;
+  padding: 2rem;
+  border: 1px solid var(--background-color);
+  border-radius: var(--border-radius);
+}
