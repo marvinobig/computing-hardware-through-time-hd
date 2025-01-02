@@ -20,7 +20,7 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
             <?php foreach ($hardwareListings as $listing): ?>
                 <tr>
                     <td>
-                        <a href="/contribution.php?id=<?= $listing['id'] ?>">
+                        <a href="/contribution.php?id=<?= $listing['id'] ?>" class="underline">
                             <?= $listing['name'] ?>
                         </a>
                     </td>

@@ -37,17 +37,17 @@ async function reloadContributionsTable(tableBody) {
         const row = `
         <tr>
           <td>
-            <a href="/contribution.php?id=${listing.id}">
+            <a href="/contribution.php?id=${listing.id}" class="underline">
               ${listing.name}
             </a>
           </td>
           <td>${listing.views}</td>
           <td>${createdDate.toLocaleDateString()} at ${createdDate.toLocaleTimeString()}</td>
           <td>
-            <a href="/admin/update-listing.php?id=${listing.id}">
+            <a href="/admin/update-listing.php?id=${listing.id}" class="btn">
               Edit
             </a>
-            <button id="${listing.id}" type="button">Delete</button>
+            <button id="${listing.id}" type="button" class="btn">Delete</button>
           </td>
         </tr>
       `;
