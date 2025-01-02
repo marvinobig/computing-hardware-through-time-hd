@@ -29,10 +29,10 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
                         <?= (new DateTime($listing['created_at']))->format('d/m/Y \a\t\ H:i:s') ?>
                     </td>
                     <td>
-                        <a href="/admin/update-listing.php?id=<?= $listing['id'] ?>">
+                        <a href="/admin/update-listing.php?id=<?= $listing['id'] ?>" class="btn">
                             Edit
                         </a>
-                        <button id="<?= $listing['id'] ?>" type="button">Delete</button>
+                        <button id="<?= $listing['id'] ?>" type="button" class="btn">Delete</button>
                     </td>
                 </tr>
             <?php endforeach ?>

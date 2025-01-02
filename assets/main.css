@@ -105,6 +105,7 @@ A (more) Modern CSS Reset (no date) Piccalilli. Available at: https://piccalil.l
 * {
   --max-width: 1000px;
   --background-color: #272727;
+  --background-color-light: #f3f3f3;
   --color: #fcfcfc;
   --border-radius: 1.6rem;
   --element-gap: 20px;
@@ -127,6 +128,7 @@ body {
   padding: 8px 18px;
   transition: var(--hover-transition);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -151,7 +153,8 @@ label:not([class]) {
   font-size: 1rem;
 }
 
-label:not([class]) input, select {
+label:not([class]) input,
+select {
   height: 100%;
   width: 334px;
   padding: 0 0.5rem;
@@ -444,4 +447,75 @@ footer {
   padding: 2rem;
   border: 1px solid var(--background-color);
   border-radius: var(--border-radius);
+}
+
+/* admin dashboard page */
+.admin_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--element-gap);
+  max-width: var(--max-width);
+}
+
+.admin_header h1 {
+  margin: 0;
+}
+
+.table_container {
+  display: flex;
+  gap: var(--element-gap);
+}
+
+#contributions_table,
+#history_table {
+  border-collapse: collapse;
+  font-size: 1.2rem;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 0 20px var(--box-shadow-color);
+}
+
+#history_table {
+  width: 100%;
+  max-width: 550px;
+}
+
+#contributions_table thead tr,
+#history_table thead tr {
+  background-color: var(--background-color);
+  color: var(--color);
+  text-align: left;
+  font-weight: bold;
+}
+
+#contributions_table th,
+td {
+  padding: 1.5rem 2rem;
+}
+
+#history_table th,
+td {
+  padding: 1.5rem 2rem;
+}
+
+#contributions_table tbody tr,
+#history_table tbody tr {
+  border-bottom: 1px solid var(--background-color);
+  max-height: 50px !important;
+}
+
+#contributions_table tbody .btn,
+#history_table tbody .btn {
+  margin-right: 10px;
+}
+
+#contributions_table tbody tr:last-of-type,
+#history_table tbody tr:last-of-type {
+  border-bottom: 4px solid var(--background-color);
+}
+
+#contributions_table tbody tr:nth-child(even),
+#history_table tbody tr:nth-child(even) {
+  background-color: var(--background-color-light);
 }
