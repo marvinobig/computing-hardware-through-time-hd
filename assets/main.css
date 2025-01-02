@@ -450,12 +450,36 @@ footer {
 }
 
 /* admin dashboard page */
+.admin_page {
+  display: grid;
+  grid-template-columns: 1fr 550px;
+  grid-template-rows: 100px repeat(2, 1fr);
+  gap: var(--element-gap);
+  grid-template-areas:
+    "intro intro"
+    "ct ht"
+    "ct ht";
+  padding: 1.5rem;
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px repeat(2, 1fr);
+    grid-template-areas:
+      "intro intro"
+      "ct ct"
+      "ht ht";
+  }
+}
+
 .admin_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: var(--element-gap);
+  width: 100%;
   max-width: var(--max-width);
+  grid-area: intro;
+  justify-self: center;
 }
 
 .admin_header h1 {
@@ -474,11 +498,19 @@ footer {
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: 0 0 20px var(--box-shadow-color);
+  height: fit-content;
+
+  /* @media screen and (max-width: 680px) {
+    overflow-x: scroll;
+  } */
+}
+
+#contributions_table {
+  grid-area: ct;
 }
 
 #history_table {
-  width: 100%;
-  max-width: 550px;
+  grid-area: ht;
 }
 
 #contributions_table thead tr,
@@ -507,7 +539,7 @@ td {
 
 #contributions_table tbody .btn,
 #history_table tbody .btn {
-  margin-right: 10px;
+  margin: 10px 10px;
 }
 
 #contributions_table tbody tr:last-of-type,

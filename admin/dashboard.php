@@ -16,20 +16,14 @@ if (!Utilities::guard()) {
     <body>
         <?php Utilities::loadPartial('nav') ?>
 
-        <main>
-            <header>
-                <h1>Dashboard</h1>
-                <h3>Welcome, <?= $_SESSION['user']['username'] ?>!</h3>
+        <main class="admin_page">
+            <header class="admin_header">
+                <h1>Welcome to the dashboard, <?= $_SESSION['user']['username'] ?>!</h1>
+                <?php Utilities::loadPartial('contributions-insert') ?>
             </header>
-
-            <?php Utilities::loadPartial('contributions-insert') ?>
-
-            <section>
-                <?php Utilities::loadPartial('listings-table', ['database' => $database]) ?>
-                <?php Utilities::loadPartial('history-table', ['database' => $database]) ?>
-            </section>
+            <?php Utilities::loadPartial('listings-table', ['database' => $database]) ?>
+            <?php Utilities::loadPartial('history-table', ['database' => $database]) ?>
         </main>
-
         <?php Utilities::loadPartial('footer') ?>
     </body>
 

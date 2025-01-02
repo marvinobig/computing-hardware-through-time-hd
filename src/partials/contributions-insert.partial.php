@@ -1,7 +1,7 @@
 <dialog id="create_modal">
     <div>
         <h2>Contribution</h2>
-        <button id="create_modal_close_btn" type="button">Close</button>
+        <button id="create_modal_close_btn" type="button" class="btn">Close</button>
     </div>
     <form id="contributions_upload" method="post" enctype="multipart/form-data">
         <section>
@@ -60,10 +60,10 @@
         </section>
 
         <section>
-            <button type="submit">Add to Contributions</button>
+            <button type="submit" class="btn">Add to Contributions</button>
         </section>
     </form>
 </dialog>
-<button id="create_modal_open_btn" type="button">
+<button id="create_modal_open_btn" type="button" class="btn">
     Add a contribution
 </button>
