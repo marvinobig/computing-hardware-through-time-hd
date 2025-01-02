@@ -138,6 +138,32 @@ body {
   text-align: center;
 }
 
+label:not([class]) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding-left: 1rem;
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+  color: var(--color);
+  font-size: 1rem;
+}
+
+label:not([class]) input, select {
+  height: 100%;
+  width: 334px;
+  border: 1px solid var(--background-color);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  background-color: var(--color);
+}
+
+label:not([class]) select:focus-within {
+  outline: 0;
+  border: 3px solid var(--background-color);
+}
+
 .chtt_input {
   display: flex;
 }
@@ -145,6 +171,7 @@ body {
 .chtt_input input {
   border-right: 0;
   border: 1px solid var(--background-color);
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
 
 .chtt_input input:focus-within {
@@ -312,6 +339,10 @@ footer {
 .card_content {
   padding: 1.5rem 1.5rem 1.5rem 0.5rem;
   font-size: 1.2rem;
+
+  @media screen and (max-width: 720px) {
+    padding: 1.5rem;
+  }
 }
 
 .card_content h3 {
@@ -358,6 +389,26 @@ footer {
 }
 
 /* filter form */
+#filters_form {
+  border-radius: var(--border-radius);
+}
 
+#filters_form form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--element-gap);
+}
+
+.form_heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--element-gap);
+  margin-bottom: 20px;
+}
+
+.form_heading h2 {
+  margin: 0;
+}
 
 /* login form */
