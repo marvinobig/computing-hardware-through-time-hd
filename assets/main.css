@@ -140,6 +140,15 @@ body {
   text-align: center;
 }
 
+.underline {
+  color: var(--background-color);
+  text-decoration: underline;
+}
+
+.underline:hover {
+  font-weight: bold;
+}
+
 label:not([class]) {
   display: flex;
   justify-content: space-between;
@@ -453,17 +462,17 @@ footer {
 .admin_page {
   display: grid;
   grid-template-columns: 1fr 550px;
-  grid-template-rows: 100px repeat(2, 1fr);
-  gap: var(--element-gap);
+  grid-template-rows: auto repeat(2, 1fr);
+  gap: 50px;
   grid-template-areas:
     "intro intro"
     "ct ht"
     "ct ht";
   padding: 1.5rem;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1300px) {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px repeat(2, 1fr);
+    grid-template-rows: 100px repeat(2, auto);
     grid-template-areas:
       "intro intro"
       "ct ct"
@@ -480,6 +489,7 @@ footer {
   max-width: var(--max-width);
   grid-area: intro;
   justify-self: center;
+  margin-top: 20px;
 }
 
 .admin_header h1 {
