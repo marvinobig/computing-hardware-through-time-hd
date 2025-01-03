@@ -149,6 +149,19 @@ body {
   font-weight: bold;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--element-gap);
+  width: 100%;
+  margin-bottom: var(--element-gap);
+}
+
+.remove-mg {
+  margin: 0;
+}
+
 label:not([class]) {
   display: flex;
   justify-content: space-between;
@@ -180,6 +193,11 @@ label:not([class]) select:focus-within {
 label:not([class]) input:focus-within {
   outline: 0;
   border: 3px solid var(--background-color);
+}
+
+textarea {
+  border-radius: var(--border-radius);
+  resize: none;
 }
 
 .chtt_input {
@@ -560,4 +578,15 @@ td {
 #contributions_table tbody tr:nth-child(even),
 #history_table tbody tr:nth-child(even) {
   background-color: var(--background-color-light);
+}
+
+/* contribution insert modal */
+#create_modal {
+  border-radius: var(--border-radius);
+}
+
+#create_modal form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--element-gap);
 }
