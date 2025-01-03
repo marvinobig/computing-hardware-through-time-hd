@@ -616,6 +616,6 @@ td {
   max-width: var(--max-width);
 }
 
-#contributions_update input, select {
+#contributions_update input, #contributions_update select {
   max-width: 750px;
 }
