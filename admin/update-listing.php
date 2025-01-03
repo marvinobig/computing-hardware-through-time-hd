@@ -25,22 +25,24 @@ $title = 'Update ' . $listing['name'] . ' listing';
     <body>
         <?php Utilities::loadPartial('nav') ?>
 
-        <main>
-            <h1>Update <?= $listing['name'] ?> listing</h1>
+        <main id="update_page">
+            <header>
+                <h1>Update "<?= $listing['name'] ?>" listing</h1>
+            </header>
 
             <form id="contributions_update" method="post" action="/api/update-listing.php?id=<?= $listing['id'] ?>"
                 enctype="multipart/form-data">
-                <section>
-                    <label for="image">Image</label>
+
+                <label for="image">Image
                     <input type="file" name="image" id="image" accept="image/*">
-                </section>
-                <section>
-                    <label for="hardware_name">Name</label>
+                </label>
+
+                <label for="hardware_name">Name
                     <input required type="text" name="hardware_name" id="hardware_name"
                         value="<?= htmlspecialchars($listing['name']) ?>">
-                </section>
-                <section>
-                    <label for="hardware_type">Type</label>
+                </label>
+
+                <label for="hardware_type">Type
                     <select required name="hardware_type" id="hardware_type">
                         <option value="cpu" <?= $listing['type'] === 'cpu' ? 'selected' : '' ?>>CPU (Processor)
                         </option>
@@ -66,29 +68,27 @@ $title = 'Update ' . $listing['name'] . ' listing';
                         <option value="peripherals" <?= $listing['type'] === 'peripherals' ? 'selected' : '' ?>>
                             Peripherals (Mouse, Keyboard, etc.)</option>
                     </select>
-                </section>
-                <section>
-                    <label for="manufacturer">Manufacturer</label>
+                </label>
+
+                <label for="manufacturer">Manufacturer
                     <input required type="text" name="manufacturer" id="manufacturer"
                         value="<?= htmlspecialchars($listing['manufacturer']) ?>">
-                </section>
-                <section>
-                    <label for="summary">Historical Significance Summary</label>
-                    <textarea name="summary" id="summary" rows="4"
-                        cols="50"><?= htmlspecialchars($listing['summary']) ?></textarea>
-                </section>
-                <section>
-                    <label for="details">Details</label>
-                    <textarea name="details" id="details" rows="10"
-                        cols="50"><?= htmlspecialchars($listing['details']) ?></textarea>
-                </section>
-                <section>
-                    <label for="price_at_release">Price at Release</label>
+                </label>
+
+                <label for="summary">Historical Significance Summary</label>
+                <textarea name="summary" id="summary" rows="4"
+                    cols="50"><?= htmlspecialchars($listing['summary']) ?></textarea>
+
+                <label for="details">Details</label>
+                <textarea name="details" id="details" rows="10"
+                    cols="50"><?= htmlspecialchars($listing['details']) ?></textarea>
+
+                <label for="price_at_release">Price at Release
                     <input required type="number" step="0.01" min="0.00" name="price_at_release" id="price_at_release"
                         value="<?= htmlspecialchars($listing['price_at_release']) ?>">
-                </section>
-                <section>
-                    <label for="status">Status</label>
+                </label>
+
+                <label for="status">Status
                     <select required name="status" id="status">
                         <option value="na" <?= $listing['status'] === 'na' ? 'selected' : '' ?>>N/A</option>
                         <option value="fully_supported" <?= $listing['status'] === 'fully_supported' ? 'selected' : '' ?>>
@@ -98,16 +98,15 @@ $title = 'Update ' . $listing['name'] . ' listing';
                         <option value="obsolete" <?= $listing['status'] === 'obsolete' ? 'selected' : '' ?>>Obsolete
                         </option>
                     </select>
-                </section>
-                <section>
-                    <label for="release_date">Release Date</label>
+                </label>
+
+                <label for="release_date">Release Date
                     <input required type="date" name="release_date" id="release_date"
                         value="<?= htmlspecialchars($listing['release_date']) ?>">
-                </section>
+                </label>
 
-                <section>
-                    <button type="submit">Update <?= htmlspecialchars($listing['name']) ?> contribution</button>
-                </section>
+                <button type="submit" class="btn">Update <?= htmlspecialchars($listing['name']) ?> contribution</button>
+
             </form>
         </main>
 
