@@ -490,6 +490,8 @@ footer {
     "ct ht"
     "ct ht";
   padding: 1.5rem;
+  height: 100%;
+  max-height: calc(100vh - 195px);
 
   @media screen and (max-width: 1300px) {
     grid-template-columns: 1fr 1fr;
@@ -498,6 +500,7 @@ footer {
       "intro intro"
       "ct ct"
       "ht ht";
+    max-height: max-content;
   }
 }
 
@@ -511,6 +514,13 @@ footer {
   grid-area: intro;
   justify-self: center;
   margin-top: 20px;
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
 }
 
 .admin_header h1 {
@@ -530,18 +540,25 @@ footer {
   overflow: hidden;
   box-shadow: 0 0 20px var(--box-shadow-color);
   height: fit-content;
-
-  /* @media screen and (max-width: 680px) {
-    overflow-x: scroll;
-  } */
+  width: 100%;
 }
 
-#contributions_table {
+#ct_container {
   grid-area: ct;
+  overflow-y: scroll;
+
+  @media screen and (max-width: 680px) {
+    overflow-x: scroll;
+  }
 }
 
-#history_table {
+#ht_container {
   grid-area: ht;
+  overflow-y: scroll;
+
+  @media screen and (max-width: 680px) {
+    overflow-x: scroll;
+  }
 }
 
 #contributions_table thead tr,
