@@ -190,6 +190,7 @@ select {
   border: 1px solid var(--background-color);
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   background-color: var(--color);
+  color: var(--background-color);
 }
 
 label:not([class]) select:focus-within {
