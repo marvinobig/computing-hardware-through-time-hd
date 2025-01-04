@@ -5,6 +5,7 @@ $history = $database->query('SELECT * FROM user_activity;');
 ?>
 
 <div id="ht_container">
+    <h2 class="title">Site History</h2>
     <table id="history_table">
         <thead>
             <tr>

@@ -162,6 +162,11 @@ body {
   margin: 0;
 }
 
+.title {
+  margin-bottom: var(--element-gap);
+  font-size: 1.8rem;
+}
+
 label:not([class]) {
   display: flex;
   justify-content: space-between;

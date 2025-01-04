@@ -5,6 +5,7 @@ $hardwareListings = $database->query('SELECT * FROM hardware;');
 ?>
 
 <div id="ct_container">
+    <h2 class="title">Site Listings</h2>
     <table id="contributions_table">
         <thead>
             <tr>
