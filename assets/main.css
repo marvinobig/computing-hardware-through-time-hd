@@ -217,6 +217,8 @@ textarea {
   border-right: 0;
   border: 1px solid var(--background-color);
   border-radius: var(--border-radius) 0 0 var(--border-radius);
+  width: 100%;
+  max-width: 340px;
 }
 
 .chtt_input input:focus-within {
@@ -328,6 +330,10 @@ footer {
   display: flex;
   justify-content: center;
   padding: 3rem;
+
+  @media screen and (max-width: 720px) {
+    padding: 1.5rem;
+  }
 }
 
 #contributions_header .content {
@@ -356,7 +362,7 @@ footer {
 
   @media screen and (max-width: 720px) {
     flex-direction: column;
-    max-width: 400px;
+    max-width: 350px;
   }
 }
 
@@ -397,6 +403,7 @@ footer {
 
 .tags_container {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--element-gap);
 }
 
@@ -430,6 +437,10 @@ footer {
 }
 
 /* search form */
+.search_form {
+  margin-left: var(--element-gap);
+}
+
 .search_form button {
   border-radius: 0 1.6rem 1.6rem 0;
 }
@@ -639,6 +650,7 @@ td {
   max-width: var(--max-width);
 }
 
-#contributions_update input, #contributions_update select {
+#contributions_update input,
+#contributions_update select {
   max-width: 750px;
 }
