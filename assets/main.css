@@ -462,6 +462,10 @@ footer {
   align-items: center;
   gap: var(--element-gap);
   margin-bottom: 20px;
+
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+  }
 }
 
 .form_heading h2 {
