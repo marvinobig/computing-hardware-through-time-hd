@@ -436,6 +436,10 @@ footer {
   margin-bottom: 1.4rem;
 }
 
+.contribution_meta-data img {
+    border-radius: var(--border-radius);
+}
+
 /* search form */
 .search_form {
   margin-left: var(--element-gap);
