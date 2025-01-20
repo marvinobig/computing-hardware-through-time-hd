@@ -350,6 +350,11 @@ footer {
   padding: 1rem 3rem;
 }
 
+.card_container a {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
 .contribution_card {
   display: flex;
   max-width: var(--max-width);
