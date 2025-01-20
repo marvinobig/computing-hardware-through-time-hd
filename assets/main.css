@@ -353,6 +353,10 @@ footer {
 .card_container a {
   width: 100%;
   max-width: var(--max-width);
+
+  @media screen and (max-width: 720px) {
+    max-width: fit-content;
+  }
 }
 
 .contribution_card {
