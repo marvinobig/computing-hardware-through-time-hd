@@ -1,5 +1,5 @@
 # Block direct access to these folders
-RedirectMatch 403 ^/(hardware_image_uploads|api|src)/
+RedirectMatch 403 ^/(src)/
 RedirectMatch 403 ^/\.|^.*\.env$
 
 <FilesMatch "^(README\.md|docker-compose\.yml|Dockerfile)$">

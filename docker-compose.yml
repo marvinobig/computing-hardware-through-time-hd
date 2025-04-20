@@ -1,4 +1,11 @@
 services:
+  chtt_site:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+    - chtt_db
   chtt_db:
     image: mysql:latest
     container_name: chtt_db
