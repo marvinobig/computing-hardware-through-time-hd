@@ -60,10 +60,6 @@ class Utilities
     }
 
     public static function guard() : bool {
-        if ($_SESSION['user']) {
-            return true;
-        }
-
-        return false;
+        return isset($_SESSION['user']);
     }
 }
